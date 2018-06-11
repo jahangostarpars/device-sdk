@@ -1,6 +1,6 @@
 # General
 
-SDK port: `8020`
+![SDK Port](https://img.shields.io/badge/SDK%20Port-8020-brightgreen.svg)
 
 ## Table of Contents <!-- omit in toc -->
 
@@ -65,9 +65,9 @@ HTTP/1.1 401 Unauthorized
 }
 ```
 
-[raden-t41]: drivers/raden-t41.md
-[raden-rf500]: drivers/raden-rf500.md
-[v800]: drivers/v800.md
+[raden-t41]: drivers/raden-t41\.md
+[raden-rf500]: drivers/raden-rf500\.md
+[v800]: drivers/v800\.md
 
 [string]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String
 [number]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number
