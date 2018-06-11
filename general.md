@@ -36,14 +36,14 @@ SDK port: `8020`
 
 ```json
 {
-  device: {
-    host: "192.168.20.20"
-    port: 8080
-    type: "RadenT41"
-    username: "admin",
-    password: "123",
-  }
-  command: "test:connection",
+  "device": {
+    "host": "192.168.20.20",
+    "port": 8080,
+    "type": "RadenT41",
+    "username": "admin",
+    "password": "123"
+  },
+  "command": "test:connection"
 }
 ```
 
@@ -53,7 +53,7 @@ SDK port: `8020`
 HTTP/1.1 500 Internal Server Error
 
 {
-  message: "Connection Failed"
+  "message": "Connection Failed"
 }
 ```
 
@@ -61,7 +61,7 @@ HTTP/1.1 500 Internal Server Error
 HTTP/1.1 401 Unauthorized
 
 {
-  message: "Authentication Failed"
+  "message": "Authentication Failed"
 }
 ```
 

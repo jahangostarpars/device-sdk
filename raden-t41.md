@@ -33,7 +33,7 @@ command: `test:connection`
 HTTP/1.1 200 Ok
 
 {
-  message: "Connection Successful"
+  "message": "Connection Successful"
 }
 ```
 
@@ -63,19 +63,19 @@ command: `get:info`
 HTTP/1.1 200 Ok
 
 {
-  info: {
-    adapter: true,
-    battery_level: 0,
-    battery: true,
-    cards: 1,
-    fingers: 95,
-    clockings: 6973,
-    id: "7b383834-6666-3837-352d-343337312d34",
-    name: "raden",
-    firmware: "1.0.38",
-    memory_available: 892480,
-    memory_size: 960504,
-    memory_used: 19232
+  "info": {
+    "adapter": true,
+    "battery_level": 0,
+    "battery": true,
+    "cards": 1,
+    "fingers": 95,
+    "clockings": 6973,
+    "id": "7b383834-6666-3837-352d-343337312d34",
+    "name": "raden",
+    "firmware": "1.0.38",
+    "memory_available": 892480,
+    "memory_size": 960504,
+    "memory_used": 19232
   }
 }
 ```
