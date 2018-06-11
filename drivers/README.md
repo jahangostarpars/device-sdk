@@ -18,7 +18,7 @@ SDK port: `8020`
 
 | Param | Type | Description |
 |:-----:|:----:|:-----------:|
-| device | [`Device`](#Device) | Target device |
+| device | [`Device`](#device) | Target device |
 | command | [`String`](string) | The request you want to send to the device |
 | [params] | [`Object`](object) | Parameters that are neede to handle the request |
 
@@ -65,9 +65,9 @@ HTTP/1.1 401 Unauthorized
 }
 ```
 
-[raden-t41]: ./raden-t41.md
-[raden-rf500]: ./raden-rf500.md
-[v800]: ./v800.md
+[raden-t41]: drivers/raden-t41.md
+[raden-rf500]: drivers/raden-rf500.md
+[v800]: drivers/v800.md
 
 [string]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String
 [number]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number

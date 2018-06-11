@@ -1,6 +1,6 @@
 # Raden T41
 
-device type: `RadenT41`
+![Device Type](https://img.shields.io/badge/Device%20Type-RadenT41-blue.svg)
 
 ## Table of Contents <!-- omit in toc -->
 
