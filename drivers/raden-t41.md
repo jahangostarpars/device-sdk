@@ -12,8 +12,21 @@
   - [Remove Users](#remove-users)
 - [Clockings](#clockings)
   - [Get Clockings](#get-clockings)
-  - [Mark Clockings](#mark-clockings)
   - [Remove Clockings](#remove-clockings)
+  - [Mark Clockings](#mark-clockings)
+- [Cards](#cards)
+  - [Get Cards](#get-cards)
+  - [Set Cards](#set-cards)
+  - [Remove Cards](#remove-cards)
+  - [Mark Cards](#mark-cards)
+  - [Register Cards](#register-cards)
+- [Fingerprints](#fingerprints)
+- [Meals](#meals)
+- [Foods](#foods)
+- [Passwords](#passwords)
+- [Settings](#settings)
+- [Datetime](#datetime)
+- [Others](#others)
 
 ## Test Connection
 
@@ -296,41 +309,6 @@ HTTP/1.1 200 Ok
 }
 ```
 
-### Mark Clockings
-
-command: `mark:clockings`
-
-| Param | Type | Description |
-|:-----:|:----:|:-----------:|
-| [clockings] | [Number](number)[] | Clockings ids |
-
-**Example Request**:
-
-```json
-{
-  "device": {
-    "host": "192.168.20.20",
-    "port": 8080,
-    "type": "RadenT41",
-    "password": "123"
-  },
-  "command": "mark:clockings",
-  "params": {
-    "clockings": [31762, ...],
-  }
-}
-```
-
-**Example Response**:
-
-```http
-HTTP/1.1 200 Ok
-
-{
-  "message": "SUCCESSFUL"
-}
-```
-
 ### Remove Clockings
 
 removes the clockings from the device in the given time range, in case no params given it will remove all clockings
@@ -371,6 +349,267 @@ HTTP/1.1 200 Ok
   "message": "SUCCESSFUL"
 }
 ```
+
+### Mark Clockings
+
+command: `mark:clockings`
+
+| Param | Type | Description |
+|:-----:|:----:|:-----------:|
+| [clockings] | [Number](number)[] | Clockings ids |
+
+**Example Request**:
+
+```json
+{
+  "device": {
+    "host": "192.168.20.20",
+    "port": 8080,
+    "type": "RadenT41",
+    "password": "123"
+  },
+  "command": "mark:clockings",
+  "params": {
+    "clockings": [31762, ...],
+  }
+}
+```
+
+**Example Response**:
+
+```http
+HTTP/1.1 200 Ok
+
+{
+  "message": "SUCCESSFUL"
+}
+```
+
+## Cards
+
+### Get Cards
+
+gets the cards for given users from device, in case no param given it will get all cards
+
+command: `get:cards`
+
+**User object**:
+
+| Param | Type | Description |
+|:-----:|:----:|:-----------:|
+| [users] | [Number](number)[] | Users identification codes |
+
+**Example Request**:
+
+```json
+{
+  "device": {
+    "host": "192.168.20.20",
+    "port": 8080,
+    "type": "RadenT41",
+    "password": "123"
+  },
+  "command": "get:cards",
+  "params": {
+    "users": [222, ...],
+  }
+}
+```
+
+**Example Response**:
+
+```http
+HTTP/1.1 200 Ok
+
+{
+  "cards": [
+    {
+      "card_id": "{xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx}",
+      "code": 222,
+      "id": 3,
+      "last_update": "2017-02-20T12:25:44"
+    },
+    ...
+  ]
+}
+```
+
+### Set Cards
+
+command: `set:cards`
+
+| Param | Type | Description |
+|:-----:|:----:|:-----------:|
+| cards | [Card](#card)[] | - |
+
+#### Card <!-- omit in toc -->
+
+| Param | Type | Description |
+|:-----:|:----:|:-----------:|
+| code | [Number](number) | User's identification code |
+| card_id | [String](string) | - |
+| last_update | [String](string) | datetime |
+
+**Example Request**:
+
+```json
+{
+  "device": {
+    "host": "192.168.20.20",
+    "port": 8080,
+    "type": "RadenT41",
+    "password": "123"
+  },
+  "command": "set:cards",
+  "params": {
+    "cards": [
+      {
+        "card_id": "{xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx}",
+        "code": 222,
+        "last_update": "2017-02-20 12:25:44"
+      },
+      ...
+    ]
+  }
+}
+```
+
+**Example Response**:
+
+```http
+HTTP/1.1 200 Ok
+
+{
+  "message": "SUCCESSFUL"
+}
+```
+
+### Remove Cards
+
+removes the cards for the given users from device, in case no param given it will remove all cards
+
+command: `remove:cards`
+
+**User object**:
+
+| Param | Type | Description |
+|:-----:|:----:|:-----------:|
+| [users] | [Number](number)[] | Users identification codes |
+
+**Example Request**:
+
+```json
+{
+  "device": {
+    "host": "192.168.20.20",
+    "port": 8080,
+    "type": "RadenT41",
+    "password": "123"
+  },
+  "command": "remove:cards",
+  "params": {
+    "users": [222, ...]
+  }
+}
+```
+
+**Example Response**:
+
+```http
+HTTP/1.1 200 Ok
+
+{
+  "message": "SUCCESSFUL"
+}
+```
+
+### Mark Cards
+
+command: `mark:cards`
+
+**User object**:
+
+| Param | Type | Description |
+|:-----:|:----:|:-----------:|
+| cards | [Number](number)[] | Cards ids |
+
+**Example Request**:
+
+```json
+{
+  "device": {
+    "host": "192.168.20.20",
+    "port": 8080,
+    "type": "RadenT41",
+    "password": "123"
+  },
+  "command": "mark:cards",
+  "params": {
+    "cards": [3, ...]
+  }
+}
+```
+
+**Example Response**:
+
+```http
+HTTP/1.1 200 Ok
+
+{
+  "message": "SUCCESSFUL"
+}
+```
+
+### Register Cards
+
+command: `register:card`
+
+**User object**:
+
+| Param | Type | Description |
+|:-----:|:----:|:-----------:|
+| user | [Number](number) | User Identification code |
+
+**Example Request**:
+
+```json
+{
+  "device": {
+    "host": "192.168.20.20",
+    "port": 8080,
+    "type": "RadenT41",
+    "password": "123"
+  },
+  "command": "register:card",
+  "params": {
+    "user": 222
+  }
+}
+```
+
+**Example Response**:
+
+```http
+HTTP/1.1 200 Ok
+
+{
+  "message": "SUCCESSFUL"
+}
+```
+
+## Fingerprints
+
+## Meals
+
+## Foods
+
+## Passwords
+
+## Settings
+
+## Datetime
+
+## Others
 
 [string]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String
 [boolean]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean
