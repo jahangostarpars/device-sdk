@@ -7,9 +7,13 @@
 - [Test Connection](#test-connection)
 - [Information](#information)
 - [Users](#users)
-  - [Get](#get)
-  - [Set](#set)
-  - [Remove](#remove)
+  - [Get Users](#get-users)
+  - [Set Users](#set-users)
+  - [Remove Users](#remove-users)
+- [Clockings](#clockings)
+  - [Get Clockings](#get-clockings)
+  - [Mark Clockings](#mark-clockings)
+  - [Remove Clockings](#remove-clockings)
 
 ## Test Connection
 
@@ -86,7 +90,7 @@ HTTP/1.1 200 Ok
 
 ## Users
 
-### Get
+### Get Users
 
 command: `get:users`
 
@@ -129,7 +133,7 @@ HTTP/1.1 200 Ok
 }
 ```
 
-### Set
+### Set Users
 
 command: `set:users`
 
@@ -201,7 +205,7 @@ HTTP/1.1 200 Ok
 }
 ```
 
-### Remove
+### Remove Users
 
 removes the given users from device, in case no param given it will remove all users
 
@@ -217,7 +221,144 @@ command: `remove:users`
 
 ```json
 {
-  "users": [222, ...]
+  "device": {
+    "host": "192.168.20.20",
+    "port": 8080,
+    "type": "RadenT41",
+    "password": "123"
+  },
+  "command": "remove:users",
+  "params": {
+    "users": [222, ...]
+  }
+}
+```
+
+**Example Response**:
+
+```http
+HTTP/1.1 200 Ok
+
+{
+  "message": "SUCCESSFUL"
+}
+```
+
+## Clockings
+
+### Get Clockings
+
+command: `get:clockings`
+
+| Param | Type | default | Description |
+|:-----:|:----:|:-------:|:-----------:|
+| [sended] | [Boolean](boolean) | `false` | Get clockings that are already sent |
+| [from] | [String](string) | - | date or datetime (`YYYY-MM-DD HH:mm:ss`) |
+| [to] | [String](string) | - | date or datetime (`YYYY-MM-DD HH:mm:ss`) |
+
+**Example Request**:
+
+```json
+{
+  "device": {
+    "host": "192.168.20.20",
+    "port": 8080,
+    "type": "RadenT41",
+    "password": "123"
+  },
+  "command": "get:clockings",
+  "params": {
+    "sended": true,
+    "from": "2018-06-01",
+    "to": "2018-06-17 23:59:59",
+  }
+}
+```
+
+**Example Response**:
+
+```http
+HTTP/1.1 200 Ok
+
+{
+  "clockings": [
+    {
+      "changed": false,
+      "code": 222,
+      "datetime": "2017-12-16T13:14:37",
+      "factor": 1,
+      "id": 31762,
+      "io": 1,
+      "reason": 55
+    },
+    ...
+  ]
+}
+```
+
+### Mark Clockings
+
+command: `mark:clockings`
+
+| Param | Type | Description |
+|:-----:|:----:|:-----------:|
+| [clockings] | [Number](number)[] | Clockings ids |
+
+**Example Request**:
+
+```json
+{
+  "device": {
+    "host": "192.168.20.20",
+    "port": 8080,
+    "type": "RadenT41",
+    "password": "123"
+  },
+  "command": "mark:clockings",
+  "params": {
+    "clockings": [31762, ...],
+  }
+}
+```
+
+**Example Response**:
+
+```http
+HTTP/1.1 200 Ok
+
+{
+  "message": "SUCCESSFUL"
+}
+```
+
+### Remove Clockings
+
+removes the clockings from the device in the given time range, in case no params given it will remove all clockings
+
+command: `remove:clockings`
+
+**User object**:
+
+| Param | Type | Description |
+|:-----:|:----:|:-----------:|
+| [from] | [String](string) | date or datetime (`YYYY-MM-DD HH:mm:ss`) |
+| [to] | [String](string) | date or datetime (`YYYY-MM-DD HH:mm:ss`) |
+
+**Example Request**:
+
+```json
+{
+  "device": {
+    "host": "192.168.20.20",
+    "port": 8080,
+    "type": "RadenT41",
+    "password": "123"
+  },
+  "command": "remove:clockings",
+  "params": {
+    "from": "2018-06-01",
+    "to": "2018-06-17 23:59:59"
+  }
 }
 ```
 

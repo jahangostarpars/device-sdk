@@ -25,7 +25,7 @@
 
 | Param | Type | default | Description |
 |:-----:|:----:|:-------:|:-----------:|
-| type | [`RadenT41`](raden-t41) \| [`RadenRF500`](raden-rf500) \| [`V800`](v800) | - | device type |
+| type | [`RadenT41`](raden-drivers/raden-t41.md) \| [`RadenRF500`](drivers/raden-rf500.md) \| [`V800`](drivers/v800.md) | - | device type |
 | host | [`String`](string) | - | device address |
 | port | [`Number`](number) | - | device port |
 | [username] | [`String`](string) | "admin" | device network username |
@@ -63,10 +63,6 @@ HTTP/1.1 401 Unauthorized
   "message": "Authentication Failed"
 }
 ```
-
-[raden-t41]: drivers/raden-t41\.md
-[raden-rf500]: drivers/raden-rf500\.md
-[v800]: drivers/v800\.md
 
 [string]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String
 [number]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number
