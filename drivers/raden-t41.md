@@ -21,6 +21,10 @@
   - [Mark Cards](#mark-cards)
   - [Register Cards](#register-cards)
 - [Fingerprints](#fingerprints)
+  - [Get Fingerprints](#get-fingerprints)
+  - [Set Fingerprints](#set-fingerprints)
+  - [Remove Fingerprints](#remove-fingerprints)
+  - [Mark Fingerprints](#mark-fingerprints)
 - [Meals](#meals)
 - [Foods](#foods)
 - [Passwords](#passwords)
@@ -224,8 +228,6 @@ removes the given users from device, in case no param given it will remove all u
 
 command: `remove:users`
 
-**User object**:
-
 | Param | Type | Description |
 |:-----:|:----:|:-----------:|
 | [users] | [Number](number)[] | Users identification codes |
@@ -315,8 +317,6 @@ removes the clockings from the device in the given time range, in case no params
 
 command: `remove:clockings`
 
-**User object**:
-
 | Param | Type | Description |
 |:-----:|:----:|:-----------:|
 | [from] | [String](string) | date or datetime (`YYYY-MM-DD HH:mm:ss`) |
@@ -392,8 +392,6 @@ HTTP/1.1 200 Ok
 gets the cards for given users from device, in case no param given it will get all cards
 
 command: `get:cards`
-
-**User object**:
 
 | Param | Type | Description |
 |:-----:|:----:|:-----------:|
@@ -490,8 +488,6 @@ removes the cards for the given users from device, in case no param given it wil
 
 command: `remove:cards`
 
-**User object**:
-
 | Param | Type | Description |
 |:-----:|:----:|:-----------:|
 | [users] | [Number](number)[] | Users identification codes |
@@ -526,8 +522,6 @@ HTTP/1.1 200 Ok
 ### Mark Cards
 
 command: `mark:cards`
-
-**User object**:
 
 | Param | Type | Description |
 |:-----:|:----:|:-----------:|
@@ -564,8 +558,6 @@ HTTP/1.1 200 Ok
 
 command: `register:card`
 
-**User object**:
-
 | Param | Type | Description |
 |:-----:|:----:|:-----------:|
 | user | [Number](number) | User Identification code |
@@ -598,6 +590,174 @@ HTTP/1.1 200 Ok
 ```
 
 ## Fingerprints
+
+### Get Fingerprints
+
+gets the fingerprints for given users from device, in case no param given it will get all fingerprints
+
+command: `get:fingerprints`
+
+| Param | Type | Description |
+|:-----:|:----:|:-----------:|
+| [users] | [Number](number)[] | Users identification codes |
+
+**Example Request**:
+
+```json
+{
+  "device": {
+    "host": "192.168.20.20",
+    "port": 8080,
+    "type": "RadenT41",
+    "password": "123"
+  },
+  "command": "get:fingerprints",
+  "params": {
+    "users": [222, ...],
+  }
+}
+```
+
+**Example Response**:
+
+```http
+HTTP/1.1 200 Ok
+
+{
+  "fingerprints": [
+    {
+      "code": 222,
+      "finger_id": 1,
+      "finger_number": 1,
+      "finger_template": "xxxx...",
+      "id": 381
+    },
+    ...
+  ]
+}
+```
+
+### Set Fingerprints
+
+command: `set:fingerprints`
+
+| Param | Type | Description |
+|:-----:|:----:|:-----------:|
+| [fingerprints] | [Fingerprint](#fingerprint)[] | - |
+
+#### Fingerprint <!-- omit in toc -->
+
+| Param | Type | Description |
+|:-----:|:----:|:-----------:|
+| code | [Number](number) | User's identification code |
+| finger_number | [Number](number) | - |
+| finger_template | [String](string) | - |
+
+**Example Request**:
+
+```json
+{
+  "device": {
+    "host": "192.168.20.20",
+    "port": 8080,
+    "type": "RadenT41",
+    "password": "123"
+  },
+  "command": "set:fingerprints",
+  "params": {
+    "fingerprints": [
+      {
+        "code": 222,
+        "finger_number": 6,
+        "finger_template": "xxx...",
+      },
+      ...
+    ],
+  }
+}
+```
+
+**Example Response**:
+
+```http
+HTTP/1.1 200 Ok
+
+{
+  "message": "SUCCESSFUL"
+}
+```
+
+### Remove Fingerprints
+
+removes the fingerprints for given users from device, in case no param given it will remove all fingerprints
+
+command: `remove:fingerprints`
+
+| Param | Type | Description |
+|:-----:|:----:|:-----------:|
+| [users] | [Number](number)[] | Users identification codes |
+
+**Example Request**:
+
+```json
+{
+  "device": {
+    "host": "192.168.20.20",
+    "port": 8080,
+    "type": "RadenT41",
+    "password": "123"
+  },
+  "command": "remove:fingerprints",
+  "params": {
+    "users": [222, ...],
+  }
+}
+```
+
+**Example Response**:
+
+```http
+HTTP/1.1 200 Ok
+
+{
+  "message": "SUCCESSFUL"
+}
+```
+
+### Mark Fingerprints
+
+command: `mark:fingerprints`
+
+| Param | Type | Description |
+|:-----:|:----:|:-----------:|
+| fingerprints | [Number](number)[] | fingerprints ids |
+
+**Example Request**:
+
+```json
+{
+  "device": {
+    "host": "192.168.20.20",
+    "port": 8080,
+    "type": "RadenT41",
+    "password": "123"
+  },
+  "command": "mark:fingerprints",
+  "params": {
+    "fingerprints": [381, ...]
+  }
+}
+```
+
+**Example Response**:
+
+```http
+HTTP/1.1 200 Ok
+
+{
+  "message": "SUCCESSFUL"
+}
+```
 
 ## Meals
 
