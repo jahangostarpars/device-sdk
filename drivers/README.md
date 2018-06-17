@@ -6,7 +6,6 @@
 
 - [Urls](#urls)
   - [Request](#request)
-    - [Device](#device)
   - [Example Request](#example-request)
   - [Example Responses](#example-responses)
 
@@ -22,7 +21,7 @@
 | command | [`String`](string) | The request you want to send to the device |
 | [params] | [`Object`](object) | Parameters that are neede to handle the request |
 
-#### Device
+#### Device <!-- omit in toc -->
 
 | Param | Type | default | Description |
 |:-----:|:----:|:-------:|:-----------:|
