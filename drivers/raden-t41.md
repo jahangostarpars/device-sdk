@@ -37,7 +37,9 @@
   - [Set Usb Password](#set-usb-password)
   - [Set Power Password](#set-power-password)
 - [Settings](#settings)
-- [Datetime](#datetime)
+  - [Get Settings](#get-settings)
+  - [Set Settings](#set-settings)
+- [Set Datetime](#set-datetime)
 - [Others](#others)
 
 ## Test Connection
@@ -1086,7 +1088,265 @@ HTTP/1.1 200 Ok
 
 ## Settings
 
-## Datetime
+### Get Settings
+
+gets the settings for given users from device, in case no param given it will get all settings
+
+command: `get:settings`
+
+> no params
+
+*Example Request*:
+
+```json
+{
+  "device": {
+    "host": "192.168.20.20",
+    "port": 8080,
+    "type": "RadenT41",
+    "password": "123"
+  },
+  "command": "get:settings"
+}
+```
+
+*Example Response*:
+
+```http
+HTTP/1.1 200 Ok
+
+{
+  "settings": {
+    "action_time_list": [],
+    "alarm_mode": 1,
+    "day_light_saving_info": "3,21,9,21,60",
+    "device_mode": 0,
+    "device_name": "raden",
+    "firmware": "1.0.38",
+    "func_key_access_list": [
+      {
+        "has_access": true,
+        "key_code": 48
+      },
+      {
+        "has_access": false,
+        "key_code": 49
+      },
+      {
+        "has_access": true,
+        "key_code": 50
+      },
+      {
+        "has_access": true,
+        "key_code": 51
+      },
+      {
+        "has_access": true,
+        "key_code": 52
+      },
+      {
+        "has_access": true,
+        "key_code": 53
+      },
+      {
+        "has_access": true,
+        "key_code": 54
+      },
+      {
+        "has_access": true,
+        "key_code": 55
+      },
+      {
+        "has_access": true,
+        "key_code": 56
+      },
+      {
+        "has_access": true,
+        "key_code": 57
+      }
+    ],
+    "network_info_list": [
+      {
+        "ap_addr": "eth0",
+        "gateway": "",
+        "interface": 0,
+        "ip": "172.254.0.1",
+        "is_dhcp": false,
+        "name": "eth0",
+        "netmask": "255.255.255.0",
+        "password": ""
+      },
+      ...
+    ],
+    "show_presents_info": true,
+    "sync_server_activate": 1,
+    "sync_server_ip": "192.168.020.001",
+    "volume": 91
+  }
+}
+```
+
+### Set Settings
+
+command: `set:settings`
+
+| Param | Type | Description |
+|:-----:|:----:|:-----------:|
+| [device_mode] | `0` \| `1` \| `2` \| `3` | `0`: clock in & out, `1`: just clock in, `2`: just clock out, `3`: indeterminate |
+| [alarm_mode] | `0` \| `1` | `0`: melody, `1`: voice |
+| [volume] | [Number](number) | between `37` & `135615936` |
+| [show_presents_info] | [Boolean](boolean) | - |
+| [sync_server_activate] | [Boolean](boolean) | - |
+| [enable_shift_length] | [Boolean](boolean) | - |
+| [sync_server_ip] | [String](string) | - |
+| [day_light_saving_info] | [String](string) | - |
+| [key_access_list] | [Key Access](#key-access)[] | - |
+| [network_info_list] | [Network Info](#network-info)[] | - |
+
+#### Key Access <!-- omit in toc -->
+
+| Param | Type | Description |
+|:-----:|:----:|:-----------:|
+| code | [Number](number) | between `48` & `57` |
+| access | [Boolean](boolean) | - |
+
+#### Network Info <!-- omit in toc -->
+
+| Param | Type | Default | Description |
+|:-----:|:----:|:-------:|:-----------:|
+| name | [String](string) | - | - |
+| interface_id | [Number](number) | - | - |
+| ap_addr | [String](string) | - | - |
+| password | [String](string) | - | - |
+| [dhcp] | [Boolean](boolean) | `false` | - |
+| [ip] | [String](string) | - | - |
+| [netmask] | [String](string) | `255.255.255.0` | - |
+| [gateway] | [String](string) | - | - |
+
+*Example Request*:
+
+```json
+{
+  "device": {
+    "host": "192.168.20.20",
+    "port": 8080,
+    "type": "RadenT41",
+    "password": "123"
+  },
+  "command": "set:settings",
+  "params": {
+    "settings": {
+      "action_time_list": [],
+      "alarm_mode": 1,
+      "day_light_saving_info": "3,21,9,21,60",
+      "device_mode": 0,
+      "device_name": "raden",
+      "firmware": "1.0.38",
+      "func_key_access_list": [
+        {
+          "has_access": true,
+          "key_code": 48
+        },
+        {
+          "has_access": false,
+          "key_code": 49
+        },
+        {
+          "has_access": true,
+          "key_code": 50
+        },
+        {
+          "has_access": true,
+          "key_code": 51
+        },
+        {
+          "has_access": true,
+          "key_code": 52
+        },
+        {
+          "has_access": true,
+          "key_code": 53
+        },
+        {
+          "has_access": true,
+          "key_code": 54
+        },
+        {
+          "has_access": true,
+          "key_code": 55
+        },
+        {
+          "has_access": true,
+          "key_code": 56
+        },
+        {
+          "has_access": true,
+          "key_code": 57
+        }
+      ],
+      "network_info_list": [
+        {
+          "ap_addr": "eth0",
+          "gateway": "",
+          "interface": 0,
+          "ip": "172.254.0.1",
+          "is_dhcp": false,
+          "name": "eth0",
+          "netmask": "255.255.255.0",
+          "password": ""
+        },
+        ...
+      ],
+      "show_presents_info": true,
+      "sync_server_activate": 1,
+      "sync_server_ip": "192.168.020.001",
+      "volume": 91
+    },
+  }
+}
+```
+
+*Example Response*:
+
+```http
+HTTP/1.1 200 Ok
+
+{
+  "message": "SUCCESSFUL"
+}
+```
+
+## Set Datetime
+
+command: `set:datetime`
+
+| Param | Type | Default | Description |
+|:-----:|:----:|:-------:|:-----------:|
+| [datetime] | [String](string)[] | now | `YYYY-MM-DD HH:mm:ss` |
+
+*Example Request*:
+
+```json
+{
+  "device": {
+    "host": "192.168.20.20",
+    "port": 8080,
+    "type": "RadenT41",
+    "password": "123"
+  },
+  "command": "set:datetime"
+}
+```
+
+*Example Response*:
+
+```http
+HTTP/1.1 200 Ok
+
+{
+  "message": "SUCCESSFUL"
+}
+```
 
 ## Others
 
