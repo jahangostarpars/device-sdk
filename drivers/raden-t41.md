@@ -29,10 +29,13 @@
   - [Set Meals](#set-meals)
 - [Foods](#foods)
   - [Get Foods](#get-foods)
-  - [Set Fingerprints](#set-fingerprints)
-  - [Remove Fingerprints](#remove-fingerprints)
-  - [Mark Fingerprints](#mark-fingerprints)
+  - [Set Foods](#set-foods)
+  - [Remove Foods](#remove-foods)
+  - [Mark Foods](#mark-foods)
 - [Passwords](#passwords)
+  - [Set Menu Password](#set-menu-password)
+  - [Set Usb Password](#set-usb-password)
+  - [Set Power Password](#set-power-password)
 - [Settings](#settings)
 - [Datetime](#datetime)
 - [Others](#others)
@@ -210,20 +213,7 @@ command: `set:users`
 HTTP/1.1 200 Ok
 
 {
-  "users": [
-    {
-      "allow_card": true,
-      "allow_code": false,
-      "allow_finger": true,
-      "code": 222,
-      "first_name": "اردلان",
-      "full_name": "آقای اردلان امینی",
-      "last_name": "امینی",
-      "sex": "male",
-      "verify_card": false
-    },
-    ...
-  ]
+  "message": "SUCCESSFUL"
 }
 ```
 
@@ -954,6 +944,8 @@ HTTP/1.1 200 Ok
 
 command: `mark:foods`
 
+This command is used for mark reserved food meal as sent on device.
+
 | Param | Type | Description |
 |:-----:|:----:|:-----------:|
 | foods | [Number](number)[] | foods ids |
@@ -986,6 +978,111 @@ HTTP/1.1 200 Ok
 ```
 
 ## Passwords
+
+### Set Menu Password
+
+command: `set:menu_password`
+
+| Param | Type | Description |
+|:-----:|:----:|:-----------:|
+| password | [String](string) | only numbers, 4 digits |
+
+*Example Request*:
+
+```json
+{
+  "device": {
+    "host": "192.168.20.20",
+    "port": 8080,
+    "type": "RadenT41",
+    "password": "123"
+  },
+  "command": "set:menu_password",
+  "params": {
+    "password": "0000",
+  }
+}
+```
+
+*Example Response*:
+
+```http
+HTTP/1.1 200 Ok
+
+{
+  "message": "SUCCESSFUL"
+}
+```
+
+### Set Usb Password
+
+command: `set:usb_password`
+
+| Param | Type | Description |
+|:-----:|:----:|:-----------:|
+| password | [String](string) | only numbers, 4 digits |
+
+*Example Request*:
+
+```json
+{
+  "device": {
+    "host": "192.168.20.20",
+    "port": 8080,
+    "type": "RadenT41",
+    "password": "123"
+  },
+  "command": "set:usb_password",
+  "params": {
+    "password": "0000",
+  }
+}
+```
+
+*Example Response*:
+
+```http
+HTTP/1.1 200 Ok
+
+{
+  "message": "SUCCESSFUL"
+}
+```
+
+### Set Power Password
+
+command: `set:power_password`
+
+| Param | Type | Description |
+|:-----:|:----:|:-----------:|
+| password | [String](string) | only numbers, 4 digits |
+
+*Example Request*:
+
+```json
+{
+  "device": {
+    "host": "192.168.20.20",
+    "port": 8080,
+    "type": "RadenT41",
+    "password": "123"
+  },
+  "command": "set:power_password",
+  "params": {
+    "password": "0000",
+  }
+}
+```
+
+*Example Response*:
+
+```http
+HTTP/1.1 200 Ok
+
+{
+  "message": "SUCCESSFUL"
+}
+```
 
 ## Settings
 
