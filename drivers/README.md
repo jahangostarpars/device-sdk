@@ -1,19 +1,15 @@
 # General
 
+![SDK Version](https://img.shields.io/badge/SDK%20Version-v1-brightgreen.svg)
 ![SDK Port](https://img.shields.io/badge/SDK%20Port-8020-brightgreen.svg)
 
 ## Table of Contents <!-- omit in toc -->
 
 - [Urls](#urls)
-  - [Request](#request)
-  - [Example Request](#example-request)
-  - [Example Responses](#example-responses)
 
 ## Urls
 
 - <http://localhost:8020/v1/connect> (`POST`)
-
-### Request
 
 | Param | Type | Description |
 |:-----:|:----:|:-----------:|
@@ -21,7 +17,7 @@
 | command | [`String`](string) | The request you want to send to the device |
 | [params] | [`Object`](object) | Parameters that are neede to handle the request |
 
-#### Device <!-- omit in toc -->
+### Device <!-- omit in toc -->
 
 | Param | Type | default | Description |
 |:-----:|:----:|:-------:|:-----------:|
@@ -31,7 +27,7 @@
 | [username] | [`String`](string) | "admin" | device network username |
 | [password] | [`String`](string) | - | device network password |
 
-### Example Request
+*Example Request*:
 
 ```json
 {
@@ -46,7 +42,7 @@
 }
 ```
 
-### Example Responses
+*Example Responses*:
 
 ```http
 HTTP/1.1 500 Internal Server Error
