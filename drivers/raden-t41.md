@@ -40,7 +40,8 @@
   - [Get Settings](#get-settings)
   - [Set Settings](#set-settings)
 - [Set Datetime](#set-datetime)
-- [Others](#others)
+- [Get Accesspoints](#get-accesspoints)
+- [Reset Presents](#reset-presents)
 
 ## Test Connection
 
@@ -1348,7 +1349,77 @@ HTTP/1.1 200 Ok
 }
 ```
 
-## Others
+## Get Accesspoints
+
+command: `get:accesspoints`
+
+> no params
+
+*Example Request*:
+
+```json
+{
+  "device": {
+    "host": "192.168.20.20",
+    "port": 8080,
+    "type": "RadenT41",
+    "password": "123"
+  },
+  "command": "get:accesspoints"
+}
+```
+
+*Example Response*:
+
+```http
+HTTP/1.1 200 Ok
+
+{
+  "accesspoints": [
+    {
+      "ap_addr": "xx:xx:xx:xx:xx:xx",
+      "auth_mode": "WPA2PSK",
+      "channel": x,
+      "encrypt_type": "TKIPAES",
+      "encryption_key": xxxxxxx,
+      "is_connected": true,
+      "name": "JGP",
+      "network_type": "Master"
+    },
+    ...
+  ]
+}
+```
+
+## Reset Presents
+
+command: `reset:presents`
+
+> no params
+
+*Example Request*:
+
+```json
+{
+  "device": {
+    "host": "192.168.20.20",
+    "port": 8080,
+    "type": "RadenT41",
+    "password": "123"
+  },
+  "command": "reset:presents"
+}
+```
+
+*Example Response*:
+
+```http
+HTTP/1.1 200 Ok
+
+{
+  "message": "SUCCESSFUL"
+}
+```
 
 [string]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String
 [boolean]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean
