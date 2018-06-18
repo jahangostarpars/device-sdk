@@ -7,4 +7,4 @@
 
 ## Table of Contents
 
-- [Connection](drivers/README.md)
+- [Connection](connection/README.md)

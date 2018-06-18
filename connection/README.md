@@ -21,7 +21,7 @@
 
 | Param | Type | default | Description |
 |:-----:|:----:|:-------:|:-----------:|
-| type | [`RadenT41`](raden-t41.md) \| [`RadenRF500`](raden-rf500.md) \| [`V800`](v800.md) | - | device type |
+| type | [`RadenT41`](drivers/raden-t41/README.md) \| [`RadenRF500`](drivers/raden-rf500/README.md) \| [`V800`](drivers/v800/README.md) | - | device type |
 | host | [`String`](string) | - | device address |
 | port | [`Number`](number) | - | device port |
 | [username] | [`String`](string) | "admin" | device network username |

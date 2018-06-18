@@ -1,6 +1,6 @@
 # Raden T41
 
-![Raden T41](raden-t41.jpg)
+![Raden T41](picture.jpg)
 
 ![Device Type](https://img.shields.io/badge/Device%20Type-RadenT41-blue.svg)
 
