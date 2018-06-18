@@ -5,7 +5,7 @@
 ## Table of Contents <!-- omit in toc -->
 
 - [Test Connection](#test-connection)
-- [Information](#information)
+- [Get Information](#get-information)
 - [Users](#users)
   - [Get Users](#get-users)
   - [Set Users](#set-users)
@@ -26,7 +26,12 @@
   - [Remove Fingerprints](#remove-fingerprints)
   - [Mark Fingerprints](#mark-fingerprints)
 - [Meals](#meals)
+  - [Set Meals](#set-meals)
 - [Foods](#foods)
+  - [Get Foods](#get-foods)
+  - [Set Fingerprints](#set-fingerprints)
+  - [Remove Fingerprints](#remove-fingerprints)
+  - [Mark Fingerprints](#mark-fingerprints)
 - [Passwords](#passwords)
 - [Settings](#settings)
 - [Datetime](#datetime)
@@ -38,7 +43,7 @@ command: `test:connection`
 
 > no params
 
-**Example Request**:
+*Example Request*:
 
 ```json
 {
@@ -52,7 +57,7 @@ command: `test:connection`
 }
 ```
 
-**Example Response**:
+*Example Response*:
 
 ```http
 HTTP/1.1 200 Ok
@@ -62,13 +67,13 @@ HTTP/1.1 200 Ok
 }
 ```
 
-## Information
+## Get Information
 
 command: `get:info`
 
 > no params
 
-**Example Request**:
+*Example Request*:
 
 ```json
 {
@@ -82,7 +87,7 @@ command: `get:info`
 }
 ```
 
-**Example Response**:
+*Example Response*:
 
 ```http
 HTTP/1.1 200 Ok
@@ -113,7 +118,7 @@ command: `get:users`
 
 > no params
 
-**Example Request**:
+*Example Request*:
 
 ```json
 {
@@ -127,7 +132,7 @@ command: `get:users`
 }
 ```
 
-**Example Response**:
+*Example Response*:
 
 ```http
 HTTP/1.1 200 Ok
@@ -174,7 +179,7 @@ command: `set:users`
 | [password] | [String](string) | - | - |
 | [shift_length] | [Number](number) | `0` | - |
 
-**Example Request**:
+*Example Request*:
 
 ```json
 {
@@ -199,7 +204,7 @@ command: `set:users`
 }
 ```
 
-**Example Response**:
+*Example Response*:
 
 ```http
 HTTP/1.1 200 Ok
@@ -232,7 +237,7 @@ command: `remove:users`
 |:-----:|:----:|:-----------:|
 | [users] | [Number](number)[] | Users identification codes |
 
-**Example Request**:
+*Example Request*:
 
 ```json
 {
@@ -249,7 +254,7 @@ command: `remove:users`
 }
 ```
 
-**Example Response**:
+*Example Response*:
 
 ```http
 HTTP/1.1 200 Ok
@@ -271,7 +276,7 @@ command: `get:clockings`
 | [from] | [String](string) | - | date or datetime (`YYYY-MM-DD HH:mm:ss`) |
 | [to] | [String](string) | - | date or datetime (`YYYY-MM-DD HH:mm:ss`) |
 
-**Example Request**:
+*Example Request*:
 
 ```json
 {
@@ -290,7 +295,7 @@ command: `get:clockings`
 }
 ```
 
-**Example Response**:
+*Example Response*:
 
 ```http
 HTTP/1.1 200 Ok
@@ -322,7 +327,7 @@ command: `remove:clockings`
 | [from] | [String](string) | date or datetime (`YYYY-MM-DD HH:mm:ss`) |
 | [to] | [String](string) | date or datetime (`YYYY-MM-DD HH:mm:ss`) |
 
-**Example Request**:
+*Example Request*:
 
 ```json
 {
@@ -340,7 +345,7 @@ command: `remove:clockings`
 }
 ```
 
-**Example Response**:
+*Example Response*:
 
 ```http
 HTTP/1.1 200 Ok
@@ -358,7 +363,7 @@ command: `mark:clockings`
 |:-----:|:----:|:-----------:|
 | [clockings] | [Number](number)[] | Clockings ids |
 
-**Example Request**:
+*Example Request*:
 
 ```json
 {
@@ -375,7 +380,7 @@ command: `mark:clockings`
 }
 ```
 
-**Example Response**:
+*Example Response*:
 
 ```http
 HTTP/1.1 200 Ok
@@ -397,7 +402,7 @@ command: `get:cards`
 |:-----:|:----:|:-----------:|
 | [users] | [Number](number)[] | Users identification codes |
 
-**Example Request**:
+*Example Request*:
 
 ```json
 {
@@ -414,7 +419,7 @@ command: `get:cards`
 }
 ```
 
-**Example Response**:
+*Example Response*:
 
 ```http
 HTTP/1.1 200 Ok
@@ -448,7 +453,7 @@ command: `set:cards`
 | card_id | [String](string) | - |
 | last_update | [String](string) | datetime |
 
-**Example Request**:
+*Example Request*:
 
 ```json
 {
@@ -472,7 +477,7 @@ command: `set:cards`
 }
 ```
 
-**Example Response**:
+*Example Response*:
 
 ```http
 HTTP/1.1 200 Ok
@@ -492,7 +497,7 @@ command: `remove:cards`
 |:-----:|:----:|:-----------:|
 | [users] | [Number](number)[] | Users identification codes |
 
-**Example Request**:
+*Example Request*:
 
 ```json
 {
@@ -509,7 +514,7 @@ command: `remove:cards`
 }
 ```
 
-**Example Response**:
+*Example Response*:
 
 ```http
 HTTP/1.1 200 Ok
@@ -527,7 +532,7 @@ command: `mark:cards`
 |:-----:|:----:|:-----------:|
 | cards | [Number](number)[] | Cards ids |
 
-**Example Request**:
+*Example Request*:
 
 ```json
 {
@@ -544,7 +549,7 @@ command: `mark:cards`
 }
 ```
 
-**Example Response**:
+*Example Response*:
 
 ```http
 HTTP/1.1 200 Ok
@@ -562,7 +567,7 @@ command: `register:card`
 |:-----:|:----:|:-----------:|
 | user | [Number](number) | User Identification code |
 
-**Example Request**:
+*Example Request*:
 
 ```json
 {
@@ -579,7 +584,7 @@ command: `register:card`
 }
 ```
 
-**Example Response**:
+*Example Response*:
 
 ```http
 HTTP/1.1 200 Ok
@@ -601,7 +606,7 @@ command: `get:fingerprints`
 |:-----:|:----:|:-----------:|
 | [users] | [Number](number)[] | Users identification codes |
 
-**Example Request**:
+*Example Request*:
 
 ```json
 {
@@ -618,7 +623,7 @@ command: `get:fingerprints`
 }
 ```
 
-**Example Response**:
+*Example Response*:
 
 ```http
 HTTP/1.1 200 Ok
@@ -643,7 +648,7 @@ command: `set:fingerprints`
 
 | Param | Type | Description |
 |:-----:|:----:|:-----------:|
-| [fingerprints] | [Fingerprint](#fingerprint)[] | - |
+| fingerprints | [Fingerprint](#fingerprint)[] | - |
 
 #### Fingerprint <!-- omit in toc -->
 
@@ -653,7 +658,7 @@ command: `set:fingerprints`
 | finger_number | [Number](number) | - |
 | finger_template | [String](string) | - |
 
-**Example Request**:
+*Example Request*:
 
 ```json
 {
@@ -677,7 +682,7 @@ command: `set:fingerprints`
 }
 ```
 
-**Example Response**:
+*Example Response*:
 
 ```http
 HTTP/1.1 200 Ok
@@ -697,7 +702,7 @@ command: `remove:fingerprints`
 |:-----:|:----:|:-----------:|
 | [users] | [Number](number)[] | Users identification codes |
 
-**Example Request**:
+*Example Request*:
 
 ```json
 {
@@ -714,7 +719,7 @@ command: `remove:fingerprints`
 }
 ```
 
-**Example Response**:
+*Example Response*:
 
 ```http
 HTTP/1.1 200 Ok
@@ -732,7 +737,7 @@ command: `mark:fingerprints`
 |:-----:|:----:|:-----------:|
 | fingerprints | [Number](number)[] | fingerprints ids |
 
-**Example Request**:
+*Example Request*:
 
 ```json
 {
@@ -749,7 +754,7 @@ command: `mark:fingerprints`
 }
 ```
 
-**Example Response**:
+*Example Response*:
 
 ```http
 HTTP/1.1 200 Ok
@@ -761,7 +766,224 @@ HTTP/1.1 200 Ok
 
 ## Meals
 
+### Set Meals
+
+command: `set:meals`
+
+| Param | Type | Description |
+|:-----:|:----:|:-----------:|
+| meals | [Meal](#meal)[] | - |
+
+#### Meal <!-- omit in toc -->
+
+| Param | Type | Description |
+|:-----:|:----:|:-----------:|
+| meal_id | [Number](number) | - |
+| name | [String](string) | - |
+| due_time | [String](string) | time in `HH:mm` format |
+
+*Example Request*:
+
+```json
+{
+  "device": {
+    "host": "192.168.20.20",
+    "port": 8080,
+    "type": "RadenT41",
+    "password": "123"
+  },
+  "command": "set:meals",
+  "params": {
+    "meals": [
+      {
+        "meal_id": 128,
+        "name": "صبحانه",
+        "due_time": "07:00",
+      },
+      ...
+    ],
+  }
+}
+```
+
+*Example Response*:
+
+```http
+HTTP/1.1 200 Ok
+
+{
+  "message": "SUCCESSFUL"
+}
+```
+
 ## Foods
+
+### Get Foods
+
+gets the foods for given users from device, in case no param given it will get all foods
+
+command: `get:foods`
+
+| Param | Type | Description |
+|:-----:|:----:|:-----------:|
+| [meal_id] | [Number](number)[] | - |
+| [from] | [String](string) | - | date or datetime (`YYYY-MM-DD HH:mm:ss`) |
+| [to] | [String](string) | - | date or datetime (`YYYY-MM-DD HH:mm:ss`) |
+
+*Example Request*:
+
+```json
+{
+  "device": {
+    "host": "192.168.20.20",
+    "port": 8080,
+    "type": "RadenT41",
+    "password": "123"
+  },
+  "command": "get:foods",
+  "params": {
+    "meal_id": 128,
+  }
+}
+```
+
+*Example Response*:
+
+```http
+HTTP/1.1 200 Ok
+
+{
+  "foods": [
+    {
+      "code" : 222,
+      "datetime" : "2014-11-18T15:43:05",
+      "id" : 1,
+      "meal_id" : 1
+    },
+    ...
+  ]
+}
+```
+
+### Set Foods
+
+command: `set:foods`
+
+| Param | Type | Description |
+|:-----:|:----:|:-----------:|
+| foods | [Food](#food)[] | - |
+
+#### Food <!-- omit in toc -->
+
+| Param | Type | Description |
+|:-----:|:----:|:-----------:|
+| code | [Number](number) | User's identification code |
+| meal_id | [Number](number) | - |
+| datetime | [String](string) | datetime (`YYYY-MM-DD HH:mm:ss`) |
+
+*Example Request*:
+
+```json
+{
+  "device": {
+    "host": "192.168.20.20",
+    "port": 8080,
+    "type": "RadenT41",
+    "password": "123"
+  },
+  "command": "set:foods",
+  "params": {
+    "foods": [
+      {
+        "code" : 222,
+        "datetime" : "2018-06-18 15:43:05",
+        "meal_id" : 128
+      },
+      ...
+    ],
+  }
+}
+```
+
+*Example Response*:
+
+```http
+HTTP/1.1 200 Ok
+
+{
+  "message": "SUCCESSFUL"
+}
+```
+
+### Remove Foods
+
+removes the foods for given users from device, in case no param given it will remove all foods
+
+command: `remove:foods`
+
+| Param | Type | Description |
+|:-----:|:----:|:-----------:|
+| [from] | [String](string) | date or datetime (`YYYY-MM-DD HH:mm:ss`) |
+| [to] | [String](string) | date or datetime (`YYYY-MM-DD HH:mm:ss`) |
+
+*Example Request*:
+
+```json
+{
+  "device": {
+    "host": "192.168.20.20",
+    "port": 8080,
+    "type": "RadenT41",
+    "password": "123"
+  },
+  "command": "remove:foods"
+}
+```
+
+*Example Response*:
+
+```http
+HTTP/1.1 200 Ok
+
+{
+  "message": "SUCCESSFUL"
+}
+```
+
+### Mark Foods
+
+command: `mark:foods`
+
+| Param | Type | Description |
+|:-----:|:----:|:-----------:|
+| foods | [Number](number)[] | foods ids |
+
+*Example Request*:
+
+```json
+{
+  "device": {
+    "host": "192.168.20.20",
+    "port": 8080,
+    "type": "RadenT41",
+    "password": "123"
+  },
+  "command": "mark:foods",
+  "params": {
+    "foods": [1, ...]
+  }
+}
+```
+
+*Example Response*:
+
+```http
+HTTP/1.1 200 Ok
+
+{
+  "message": "SUCCESSFUL"
+}
+```
 
 ## Passwords
 
