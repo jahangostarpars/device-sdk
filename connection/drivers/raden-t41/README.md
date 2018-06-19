@@ -57,7 +57,6 @@ command: `test:connection`
 {
   "device": {
     "host": "192.168.20.20",
-    "port": 8080,
     "type": "RadenT41",
     "password": "123"
   },
@@ -87,7 +86,6 @@ command: `get:info`
 {
   "device": {
     "host": "192.168.20.20",
-    "port": 8080,
     "type": "RadenT41",
     "password": "123"
   },
@@ -132,7 +130,6 @@ command: `get:users`
 {
   "device": {
     "host": "192.168.20.20",
-    "port": 8080,
     "type": "RadenT41",
     "password": "123"
   },
@@ -193,7 +190,6 @@ command: `set:users`
 {
   "device": {
     "host": "192.168.20.20",
-    "port": 8080,
     "type": "RadenT41",
     "password": "123"
   },
@@ -238,7 +234,6 @@ command: `remove:users`
 {
   "device": {
     "host": "192.168.20.20",
-    "port": 8080,
     "type": "RadenT41",
     "password": "123"
   },
@@ -277,7 +272,6 @@ command: `get:clockings`
 {
   "device": {
     "host": "192.168.20.20",
-    "port": 8080,
     "type": "RadenT41",
     "password": "123"
   },
@@ -328,7 +322,6 @@ command: `remove:clockings`
 {
   "device": {
     "host": "192.168.20.20",
-    "port": 8080,
     "type": "RadenT41",
     "password": "123"
   },
@@ -364,7 +357,6 @@ command: `mark:clockings`
 {
   "device": {
     "host": "192.168.20.20",
-    "port": 8080,
     "type": "RadenT41",
     "password": "123"
   },
@@ -403,7 +395,6 @@ command: `get:cards`
 {
   "device": {
     "host": "192.168.20.20",
-    "port": 8080,
     "type": "RadenT41",
     "password": "123"
   },
@@ -454,7 +445,6 @@ command: `set:cards`
 {
   "device": {
     "host": "192.168.20.20",
-    "port": 8080,
     "type": "RadenT41",
     "password": "123"
   },
@@ -498,7 +488,6 @@ command: `remove:cards`
 {
   "device": {
     "host": "192.168.20.20",
-    "port": 8080,
     "type": "RadenT41",
     "password": "123"
   },
@@ -533,7 +522,6 @@ command: `mark:cards`
 {
   "device": {
     "host": "192.168.20.20",
-    "port": 8080,
     "type": "RadenT41",
     "password": "123"
   },
@@ -568,7 +556,6 @@ command: `register:card`
 {
   "device": {
     "host": "192.168.20.20",
-    "port": 8080,
     "type": "RadenT41",
     "password": "123"
   },
@@ -607,7 +594,6 @@ command: `get:fingerprints`
 {
   "device": {
     "host": "192.168.20.20",
-    "port": 8080,
     "type": "RadenT41",
     "password": "123"
   },
@@ -659,7 +645,6 @@ command: `set:fingerprints`
 {
   "device": {
     "host": "192.168.20.20",
-    "port": 8080,
     "type": "RadenT41",
     "password": "123"
   },
@@ -703,7 +688,6 @@ command: `remove:fingerprints`
 {
   "device": {
     "host": "192.168.20.20",
-    "port": 8080,
     "type": "RadenT41",
     "password": "123"
   },
@@ -738,7 +722,6 @@ command: `mark:fingerprints`
 {
   "device": {
     "host": "192.168.20.20",
-    "port": 8080,
     "type": "RadenT41",
     "password": "123"
   },
@@ -783,7 +766,6 @@ command: `set:meals`
 {
   "device": {
     "host": "192.168.20.20",
-    "port": 8080,
     "type": "RadenT41",
     "password": "123"
   },
@@ -831,7 +813,6 @@ command: `get:foods`
 {
   "device": {
     "host": "192.168.20.20",
-    "port": 8080,
     "type": "RadenT41",
     "password": "123"
   },
@@ -882,7 +863,6 @@ command: `set:foods`
 {
   "device": {
     "host": "192.168.20.20",
-    "port": 8080,
     "type": "RadenT41",
     "password": "123"
   },
@@ -927,7 +907,6 @@ command: `remove:foods`
 {
   "device": {
     "host": "192.168.20.20",
-    "port": 8080,
     "type": "RadenT41",
     "password": "123"
   },
@@ -961,7 +940,6 @@ This command is used for mark reserved food meal as sent on device.
 {
   "device": {
     "host": "192.168.20.20",
-    "port": 8080,
     "type": "RadenT41",
     "password": "123"
   },
@@ -998,7 +976,6 @@ command: `set:menu_password`
 {
   "device": {
     "host": "192.168.20.20",
-    "port": 8080,
     "type": "RadenT41",
     "password": "123"
   },
@@ -1033,7 +1010,6 @@ command: `set:usb_password`
 {
   "device": {
     "host": "192.168.20.20",
-    "port": 8080,
     "type": "RadenT41",
     "password": "123"
   },
@@ -1068,7 +1044,6 @@ command: `set:power_password`
 {
   "device": {
     "host": "192.168.20.20",
-    "port": 8080,
     "type": "RadenT41",
     "password": "123"
   },
@@ -1105,7 +1080,6 @@ command: `get:settings`
 {
   "device": {
     "host": "192.168.20.20",
-    "port": 8080,
     "type": "RadenT41",
     "password": "123"
   },
@@ -1232,7 +1206,6 @@ command: `set:settings`
 {
   "device": {
     "host": "192.168.20.20",
-    "port": 8080,
     "type": "RadenT41",
     "password": "123"
   },
@@ -1333,7 +1306,6 @@ command: `set:datetime`
 {
   "device": {
     "host": "192.168.20.20",
-    "port": 8080,
     "type": "RadenT41",
     "password": "123"
   },
@@ -1363,7 +1335,6 @@ command: `get:accesspoints`
 {
   "device": {
     "host": "192.168.20.20",
-    "port": 8080,
     "type": "RadenT41",
     "password": "123"
   },
@@ -1405,7 +1376,6 @@ command: `reset:presents`
 {
   "device": {
     "host": "192.168.20.20",
-    "port": 8080,
     "type": "RadenT41",
     "password": "123"
   },
