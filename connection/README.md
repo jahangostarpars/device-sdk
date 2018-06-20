@@ -23,7 +23,7 @@
 |:-----:|:----:|:-------:|:-----------:|
 | type | [`V800`](drivers/v800/README.md) \| [`RadenT41`](drivers/raden-t41/README.md) \| [`RadenRF500`](drivers/raden-rf500/README.md) \| [`RadenRF600`](drivers/raden-rf600/README.md) \| [`RadenRF620`](drivers/raden-rf620/README.md) \| [`RadenRF800`](drivers/raden-rf800/README.md) \| [`RadenRF900`](drivers/raden-rf900/README.md) | - | device type |
 | host | [`String`](string) | - | device address |
-| [port] | [`Number`](number) | RadenT41: `8080` \| RadenRF series: `9922` | device port |
+| [port] | [`Number`](number) | V800: `5010` \| RadenT41: `8080` \| RadenRF series: `9922` | device port |
 | [username] | [`String`](string) | "admin" | device network username |
 | [password] | [`String`](string) | - | device network password |
 
