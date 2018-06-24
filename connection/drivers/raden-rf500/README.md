@@ -16,6 +16,8 @@
 - [Users](#users)
   - [Get Users](#get-users)
   - [Set Users](#set-users)
+  - [Remove Users](#remove-users)
+  - [Enroll Users](#enroll-users)
 
 ## Test Connection
 
@@ -280,9 +282,13 @@ HTTP/1.1 200 Ok
 
 ### Get Users
 
+gets the given users from device, in case no param given or the users is an empty array it will get all users
+
 command: `get:users`
 
-> no params
+| Param | Type | Description |
+|:-----:|:----:|:-----------:|
+| [users] | [Number](number)[] | Users identification codes |
 
 *Example Request*:
 
@@ -341,7 +347,7 @@ command: `set:users`
 | Param | Type | Default | Description |
 |:-----:|:----:|:-------:|:-----------:|
 | id | [Number](number) | - | - |
-| name | [String](string) | - | - |
+| name | [String](string) | - | maximum `17` characters |
 | [authority] | `"0X11"` \| `"0X55"` \| `"0Xaa"` | `"0X55"` | `"0X11"`: Access control & Attendance, `"0X55"`: Attendance only, `"0Xaa"`: Access only |
 | [card_num] | [String](string) | `"0Xffffffff"` | - |
 | check_type | `"face"` \| `"card&face"` \| `"card"` \| `"num&password"` | - | - |
@@ -380,6 +386,101 @@ command: `set:users`
           "xxx...", "xxx...", "xxx...", "xxx...",
           "xxx...", "xxx..."
         ]
+      },
+      ...
+    ]
+  }
+}
+```
+
+*Example Response*:
+
+```http
+HTTP/1.1 200 Ok
+
+{
+  "message": "success"
+}
+```
+
+### Remove Users
+
+removes the given users from device, in case no param given or the users is an empty array it will remove all users
+
+command: `remove:users`
+
+| Param | Type | default | Description |
+|:-----:|:----:|:-------:|:-----------:|
+| [users] | [Number](number)[] | `[]` | Users identification codes |
+
+*Example Request*:
+
+```json
+{
+  "device": {
+    "host": "192.168.20.20",
+    "type": "RadenRF500",
+    "password": "123"
+  },
+  "command": "remove:users",
+  "params": {
+    "users": [222, ...]
+  }
+}
+```
+
+*Example Response*:
+
+```http
+HTTP/1.1 200 Ok
+
+{
+  "message": "success"
+}
+```
+
+### Enroll Users
+
+command: `enroll:users`
+
+| Param | Type | Description |
+|:-----:|:----:|:-----------:|
+| users | [User](#user-to-enroll)[] | - |
+
+#### User to enroll <!-- omit in toc -->
+
+| Param | Type | Default | Description |
+|:-----:|:----:|:-------:|:-----------:|
+| id | [Number](number) | - | - |
+| name | [String](string) | - | maximum `17` characters |
+| [authority] | `"0X11"` \| `"0X55"` | `"0X55"` | `"0X11"`: Access control & Attendance, `"0X55"`: Attendance only |
+| [dutyrule] | `1` \| `2` \| `3` \| `4` \| `5` \| `6` \| `7` \| `8` \| `9` \| `10` \| `11` | `1` | `1`: Face, `2`: Card, `3`: Card and Photo, `4`: Card and Face, `5`: ID and Face, `6`: Card or Face, `7`: Card or Pin, `8`: ID and Pin, `9`: Face and Fingerprint, `10`: Face or Fingerprint, `11`: Fingerprint |
+| [photo] | [Boolean](boolean) | `false` | `true`: Capture head photo, `false`: Don‟t capture head photo |
+| [save] | `1` \| `2` \| `3` | `1` | `1`: Only save user data to the device, `2`: Only send back user data to PC, `3`: Save user data to the device and send back user data to PC |
+
+*Example Request*:
+
+```json
+{
+  "device": {
+    "host": "192.168.20.20",
+    "type": "RadenRF500",
+    "password": "123"
+  },
+  "command": "enroll:users",
+  "params": {
+    "users": [
+      {
+        "id": 1,
+        "name": "ardalan amini",
+        "authority": "0X11",
+        "card_num": "xxxxxxxxxx",
+        "check_type": "face",
+        "opendoor_type": "face",
+        "password": "",
+        "alg_edition": "3.1",
+        "sn": "xxxxxxxxxxxxxxxx",
+        "photo": "xxx...",
       },
       ...
     ]
