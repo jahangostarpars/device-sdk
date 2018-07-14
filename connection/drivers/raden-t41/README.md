@@ -1298,7 +1298,7 @@ command: `set:datetime`
 
 | Param | Type | Default | Description |
 |:-----:|:----:|:-------:|:-----------:|
-| [datetime] | [String](string)[] | now | `YYYY-MM-DD HH:mm:ss` |
+| [datetime] | [String](string) | now | `YYYY-MM-DD HH:mm:ss` |
 
 *Example Request*:
 

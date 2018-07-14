@@ -21,6 +21,9 @@
 - [Clockings](#clockings)
   - [Get Clockings](#get-clockings)
   - [Remove Clockings](#remove-clockings)
+- [Datetime](#datetime)
+  - [Get Datetime](#get-datetime)
+  - [Set Datetime](#set-datetime)
 
 ## Test Connection
 
@@ -576,6 +579,68 @@ command: `remove:clockings`
     "from": "2018-06-01",
     "to": "2018-06-17"
   }
+}
+```
+
+*Example Response*:
+
+```http
+HTTP/1.1 200 Ok
+
+{
+  "message": "Successful"
+}
+```
+
+## Datetime
+
+### Get Datetime
+
+command: `get:datetime`
+
+> no params
+
+*Example Request*:
+
+```json
+{
+  "device": {
+    "host": "192.168.20.20",
+    "type": "RadenRF500",
+    "password": "123"
+  },
+  "command": "get:datetime"
+}
+```
+
+*Example Response*:
+
+```http
+HTTP/1.1 200 Ok
+
+{
+  "datetime": "2018-07-14 12:03:50"
+}
+```
+
+### Set Datetime
+
+command: `set:datetime`
+
+| Param | Type | Default | Description |
+|:-----:|:----:|:-------:|:-----------:|
+| [datetime] | [String](string) | now | `YYYY-MM-DD HH:mm:ss` |
+
+*Example Request*:
+
+```json
+{
+  "device": {
+    "host": "192.168.20.20",
+    "type": "RadenRF500",
+    "password": "123"
+  },
+  "command": "set:datetime"
 }
 ```
 
