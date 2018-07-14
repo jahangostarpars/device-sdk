@@ -18,6 +18,8 @@
   - [Set Users](#set-users)
   - [Remove Users](#remove-users)
   - [Enroll Users](#enroll-users)
+  - [Get User Photo](#get-user-photo)
+  - [Set User Photo](#set-user-photo)
 - [Clockings](#clockings)
   - [Get Clockings](#get-clockings)
   - [Remove Clockings](#remove-clockings)
@@ -501,6 +503,76 @@ HTTP/1.1 200 Ok
 
 {
   "message": "success"
+}
+```
+
+### Get User Photo
+
+command: `get:user_photo`
+
+| Param | Type | Description |
+|:-----:|:----:|:-----------:|
+| user | [Number][number] | User's identification code |
+
+*Example Request*:
+
+```json
+{
+  "device": {
+    "host": "192.168.20.20",
+    "type": "RadenRF500",
+    "password": "123"
+  },
+  "command": "get:user_photo",
+  "params": {
+    "user": 1
+  }
+}
+```
+
+*Example Response*:
+
+```http
+HTTP/1.1 200 Ok
+
+{
+  "photo": "xxx..."
+}
+```
+
+### Set User Photo
+
+command: `set:user_photo`
+
+| Param | Type | Description |
+|:-----:|:----:|:-----------:|
+| user | [Number][number] | User's identification code |
+| photo | [String][string] | `base64` format |
+
+*Example Request*:
+
+```json
+{
+  "device": {
+    "host": "192.168.20.20",
+    "type": "RadenRF500",
+    "password": "123"
+  },
+  "command": "set:user_photo",
+  "params": {
+    "user": 1,
+    "photo": "xxx..."
+  }
+}
+```
+
+*Example Response*:
+
+```http
+HTTP/1.1 200 Ok
+
+{
+  "message": "Successful"
 }
 ```
 
