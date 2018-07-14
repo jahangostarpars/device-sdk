@@ -31,6 +31,10 @@
   - [Get Workcodes](#get-workcodes)
   - [Set Workcodes](#set-workcodes)
   - [Remove Workcodes](#remove-workcodes)
+- [Workstatus](#workstatus)
+  - [Get Workstatus](#get-workstatus)
+  - [Set Workstatus](#set-workstatus)
+  - [Remove Workstatus](#remove-workstatus)
 
 ## Test Connection
 
@@ -866,6 +870,124 @@ command: `remove:workcodes`
   "command": "remove:workcodes",
   "params": {
     "workcodes": [1, ...]
+  }
+}
+```
+
+*Example Response*:
+
+```http
+HTTP/1.1 200 Ok
+
+{
+  "message": "Successful"
+}
+```
+
+## Workstatus
+
+### Get Workstatus
+
+command: `get:workstatus`
+
+> no params
+
+*Example Request*:
+
+```json
+{
+  "device": {
+    "host": "192.168.20.20",
+    "type": "RadenRF500",
+    "password": "123"
+  },
+  "command": "get:workstatus"
+}
+```
+
+*Example Response*:
+
+```http
+HTTP/1.1 200 Ok
+
+{
+  "workstatus": [
+    {
+      "id": 1,
+      "name": "in"
+    },
+    ...
+  ]
+}
+```
+
+### Set Workstatus
+
+command: `set:workstatus`
+
+| Param | Type | Description |
+|:-----:|:----:|:-----------:|
+| workstatus | [Workstatus Object](#workstatus-object)[] | - |
+
+#### Workstatus Object <!-- omit in toc -->
+
+| Param | Type | Description |
+|:-----:|:----:|:-----------:|
+| id | [Number][number] | - |
+| name | [String][string] | - |
+
+*Example Request*:
+
+```json
+{
+  "device": {
+    "host": "192.168.20.20",
+    "type": "RadenRF500",
+    "password": "123"
+  },
+  "command": "set:workstatus",
+  "params": {
+    "workstatus": [
+      {
+        "id": 1,
+        "name": "in"
+      },
+      ...
+    ]
+  }
+}
+```
+
+*Example Response*:
+
+```http
+HTTP/1.1 200 Ok
+
+{
+  "message": "Successful"
+}
+```
+
+### Remove Workstatus
+
+command: `remove:workstatus`
+
+| Param | Type | Description |
+|:-----:|:----:|:-----------:|
+| workstatus | [Number][number][] | workcode ids |
+
+*Example Request*:
+
+```json
+{
+  "device": {
+    "host": "192.168.20.20",
+    "type": "RadenRF500",
+    "password": "123"
+  },
+  "command": "remove:workstatus",
+  "params": {
+    "workstatus": [1, ...]
   }
 }
 ```
