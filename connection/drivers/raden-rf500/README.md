@@ -23,6 +23,7 @@
 - [Clockings](#clockings)
   - [Get Clockings](#get-clockings)
   - [Remove Clockings](#remove-clockings)
+  - [Mark Clockings](#mark-clockings)
 - [Datetime](#datetime)
   - [Get Datetime](#get-datetime)
   - [Set Datetime](#set-datetime)
@@ -651,6 +652,37 @@ command: `remove:clockings`
     "from": "2018-06-01",
     "to": "2018-06-17"
   }
+}
+```
+
+*Example Response*:
+
+```http
+HTTP/1.1 200 Ok
+
+{
+  "message": "Successful"
+}
+```
+
+### Mark Clockings
+
+Removes device's sended clockings
+
+command: `mark:clockings`
+
+> no params
+
+*Example Request*:
+
+```json
+{
+  "device": {
+    "host": "192.168.20.20",
+    "type": "RadenRF500",
+    "password": "123"
+  },
+  "command": "mark:clockings"
 }
 ```
 
