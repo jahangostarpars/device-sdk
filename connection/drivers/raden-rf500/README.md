@@ -18,6 +18,9 @@
   - [Set Users](#set-users)
   - [Remove Users](#remove-users)
   - [Enroll Users](#enroll-users)
+- [Clockings](#clockings)
+  - [Get Clockings](#get-clockings)
+  - [Remove Clockings](#remove-clockings)
 
 ## Test Connection
 
@@ -495,6 +498,94 @@ HTTP/1.1 200 Ok
 
 {
   "message": "success"
+}
+```
+
+## Clockings
+
+### Get Clockings
+
+command: `get:clockings`
+
+| Param | Type | Description |
+|:-----:|:----:|:-----------:|
+| [from] | [String](string) | date (`YYYY-MM-DD`) |
+| [to] | [String](string) | date (`YYYY-MM-DD`) |
+
+*Example Request*:
+
+```json
+{
+  "device": {
+    "host": "192.168.20.20",
+    "type": "RadenRF500",
+    "password": "123"
+  },
+  "command": "get:clockings",
+  "params": {
+    "from": "2018-06-01",
+    "to": "2018-06-17"
+  }
+}
+```
+
+*Example Response*:
+
+```http
+HTTP/1.1 200 Ok
+
+{
+  "dev_id": "xxxxxxxxxxxxxxxx",
+  "total": x,
+  "message": "success",
+  "clockings": [
+    {
+      "user_id": 1,
+      "name": "ardalan amini",
+      "datetime": "2018-06-01 08:00:00",
+      "workcode": x,
+      "status": x,
+      "authority": "0X11",
+      "card_src": "from_check"
+    },
+    ...
+  ]
+}
+```
+
+### Remove Clockings
+
+command: `remove:clockings`
+
+| Param | Type | Description |
+|:-----:|:----:|:-----------:|
+| [from] | [String](string) | date (`YYYY-MM-DD`) |
+| [to] | [String](string) | date (`YYYY-MM-DD`) |
+
+*Example Request*:
+
+```json
+{
+  "device": {
+    "host": "192.168.20.20",
+    "type": "RadenRF500",
+    "password": "123"
+  },
+  "command": "remove:clockings",
+  "params": {
+    "from": "2018-06-01",
+    "to": "2018-06-17"
+  }
+}
+```
+
+*Example Response*:
+
+```http
+HTTP/1.1 200 Ok
+
+{
+  "message": "Successful"
 }
 ```
 
