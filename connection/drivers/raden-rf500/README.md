@@ -27,6 +27,10 @@
 - [Datetime](#datetime)
   - [Get Datetime](#get-datetime)
   - [Set Datetime](#set-datetime)
+- [Workcodes](#workcodes)
+  - [Get Workcodes](#get-workcodes)
+  - [Set Workcodes](#set-workcodes)
+  - [Remove Workcodes](#remove-workcodes)
 
 ## Test Connection
 
@@ -745,6 +749,124 @@ command: `set:datetime`
     "password": "123"
   },
   "command": "set:datetime"
+}
+```
+
+*Example Response*:
+
+```http
+HTTP/1.1 200 Ok
+
+{
+  "message": "Successful"
+}
+```
+
+## Workcodes
+
+### Get Workcodes
+
+command: `get:workcodes`
+
+> no params
+
+*Example Request*:
+
+```json
+{
+  "device": {
+    "host": "192.168.20.20",
+    "type": "RadenRF500",
+    "password": "123"
+  },
+  "command": "get:workcodes"
+}
+```
+
+*Example Response*:
+
+```http
+HTTP/1.1 200 Ok
+
+{
+  "workcodes": [
+    {
+      "id": 1,
+      "name": "normal"
+    },
+    ...
+  ]
+}
+```
+
+### Set Workcodes
+
+command: `set:workcodes`
+
+| Param | Type | Description |
+|:-----:|:----:|:-----------:|
+| workcodes | [Workcode](#workcode)[] | - |
+
+#### Workcode <!-- omit in toc -->
+
+| Param | Type | Description |
+|:-----:|:----:|:-----------:|
+| id | [Number][number] | - |
+| name | [String][string] | - |
+
+*Example Request*:
+
+```json
+{
+  "device": {
+    "host": "192.168.20.20",
+    "type": "RadenRF500",
+    "password": "123"
+  },
+  "command": "set:workcodes",
+  "params": {
+    "workcodes": [
+      {
+        "id": 1,
+        "name": "normal"
+      },
+      ...
+    ]
+  }
+}
+```
+
+*Example Response*:
+
+```http
+HTTP/1.1 200 Ok
+
+{
+  "message": "Successful"
+}
+```
+
+### Remove Workcodes
+
+command: `remove:workcodes`
+
+| Param | Type | Description |
+|:-----:|:----:|:-----------:|
+| workcodes | [Number][number][] | workcode ids |
+
+*Example Request*:
+
+```json
+{
+  "device": {
+    "host": "192.168.20.20",
+    "type": "RadenRF500",
+    "password": "123"
+  },
+  "command": "remove:workcodes",
+  "params": {
+    "workcodes": [1, ...]
+  }
 }
 ```
 
