@@ -172,17 +172,17 @@ command: `set:users`
 
 | Param | Type | default | Description |
 |:-----:|:----:|:-------:|:-----------:|
-| code | [Number](number) | - | User's identification code |
-| first_name | [String](string) | - | - |
-| last_name | [String](string) | - | - |
+| code | [Number][number] | - | User's identification code |
+| first_name | [String][string] | - | - |
+| last_name | [String][string] | - | - |
 | [sex] | `male` \| `female` | `male` | User's gender |
-| [allow_finger] | [Boolean](boolean) | `false` | Indicates permission for authentication this user by fingerprint |
-| [allow_card] | [Boolean](boolean) | `false` | Indicates permission for authentication this user by card |
-| [allow_code] | [Boolean](boolean) | `false` | Indicates permission for authentication this user by code |
-| [verify_card] | [Boolean](boolean) | `false` | Indicates require authenticate card before authentication by fingerprint |
-| [username] | [String](string) | - | - |
-| [password] | [String](string) | - | - |
-| [shift_length] | [Number](number) | `0` | - |
+| [allow_finger] | [Boolean][boolean] | `false` | Indicates permission for authentication this user by fingerprint |
+| [allow_card] | [Boolean][boolean] | `false` | Indicates permission for authentication this user by card |
+| [allow_code] | [Boolean][boolean] | `false` | Indicates permission for authentication this user by code |
+| [verify_card] | [Boolean][boolean] | `false` | Indicates require authenticate card before authentication by fingerprint |
+| [username] | [String][string] | - | - |
+| [password] | [String][string] | - | - |
+| [shift_length] | [Number][number] | `0` | - |
 
 *Example Request*:
 
@@ -226,7 +226,7 @@ command: `remove:users`
 
 | Param | Type | Description |
 |:-----:|:----:|:-----------:|
-| [users] | [Number](number)[] | Users identification codes |
+| [users] | [Number][number][] | Users identification codes |
 
 *Example Request*:
 
@@ -262,9 +262,9 @@ command: `get:clockings`
 
 | Param | Type | default | Description |
 |:-----:|:----:|:-------:|:-----------:|
-| [sended] | [Boolean](boolean) | `false` | Get clockings that are already sent |
-| [from] | [String](string) | - | date or datetime (`YYYY-MM-DD HH:mm:ss`) |
-| [to] | [String](string) | - | date or datetime (`YYYY-MM-DD HH:mm:ss`) |
+| [sended] | [Boolean][boolean] | `false` | Get clockings that are already sent |
+| [from] | [String][string] | - | date or datetime (`YYYY-MM-DD HH:mm:ss`) |
+| [to] | [String][string] | - | date or datetime (`YYYY-MM-DD HH:mm:ss`) |
 
 *Example Request*:
 
@@ -313,8 +313,8 @@ command: `remove:clockings`
 
 | Param | Type | Description |
 |:-----:|:----:|:-----------:|
-| [from] | [String](string) | date or datetime (`YYYY-MM-DD HH:mm:ss`) |
-| [to] | [String](string) | date or datetime (`YYYY-MM-DD HH:mm:ss`) |
+| [from] | [String][string] | date or datetime (`YYYY-MM-DD HH:mm:ss`) |
+| [to] | [String][string] | date or datetime (`YYYY-MM-DD HH:mm:ss`) |
 
 *Example Request*:
 
@@ -349,7 +349,7 @@ command: `mark:clockings`
 
 | Param | Type | Description |
 |:-----:|:----:|:-----------:|
-| [clockings] | [Number](number)[] | Clockings ids |
+| [clockings] | [Number][number][] | Clockings ids |
 
 *Example Request*:
 
@@ -387,7 +387,7 @@ command: `get:cards`
 
 | Param | Type | Description |
 |:-----:|:----:|:-----------:|
-| [users] | [Number](number)[] | Users identification codes |
+| [users] | [Number][number][] | Users identification codes |
 
 *Example Request*:
 
@@ -435,9 +435,9 @@ command: `set:cards`
 
 | Param | Type | Description |
 |:-----:|:----:|:-----------:|
-| code | [Number](number) | User's identification code |
-| card_id | [String](string) | - |
-| last_update | [String](string) | datetime |
+| code | [Number][number] | User's identification code |
+| card_id | [String][string] | - |
+| last_update | [String][string] | datetime |
 
 *Example Request*:
 
@@ -480,7 +480,7 @@ command: `remove:cards`
 
 | Param | Type | Description |
 |:-----:|:----:|:-----------:|
-| [users] | [Number](number)[] | Users identification codes |
+| [users] | [Number][number][] | Users identification codes |
 
 *Example Request*:
 
@@ -514,7 +514,7 @@ command: `mark:cards`
 
 | Param | Type | Description |
 |:-----:|:----:|:-----------:|
-| cards | [Number](number)[] | Cards ids |
+| cards | [Number][number][] | Cards ids |
 
 *Example Request*:
 
@@ -548,7 +548,7 @@ command: `register:card`
 
 | Param | Type | Description |
 |:-----:|:----:|:-----------:|
-| user | [Number](number) | User Identification code |
+| user | [Number][number] | User Identification code |
 
 *Example Request*:
 
@@ -586,7 +586,7 @@ command: `get:fingerprints`
 
 | Param | Type | Description |
 |:-----:|:----:|:-----------:|
-| [users] | [Number](number)[] | Users identification codes |
+| [users] | [Number][number][] | Users identification codes |
 
 *Example Request*:
 
@@ -635,9 +635,9 @@ command: `set:fingerprints`
 
 | Param | Type | Description |
 |:-----:|:----:|:-----------:|
-| code | [Number](number) | User's identification code |
-| finger_number | [Number](number) | - |
-| finger_template | [String](string) | - |
+| code | [Number][number] | User's identification code |
+| finger_number | [Number][number] | - |
+| finger_template | [String][string] | - |
 
 *Example Request*:
 
@@ -680,7 +680,7 @@ command: `remove:fingerprints`
 
 | Param | Type | Description |
 |:-----:|:----:|:-----------:|
-| [users] | [Number](number)[] | Users identification codes |
+| [users] | [Number][number][] | Users identification codes |
 
 *Example Request*:
 
@@ -714,7 +714,7 @@ command: `mark:fingerprints`
 
 | Param | Type | Description |
 |:-----:|:----:|:-----------:|
-| fingerprints | [Number](number)[] | fingerprints ids |
+| fingerprints | [Number][number][] | fingerprints ids |
 
 *Example Request*:
 
@@ -756,9 +756,9 @@ command: `set:meals`
 
 | Param | Type | Description |
 |:-----:|:----:|:-----------:|
-| meal_id | [Number](number) | - |
-| name | [String](string) | - |
-| due_time | [String](string) | time in `HH:mm` format |
+| meal_id | [Number][number] | - |
+| name | [String][string] | - |
+| due_time | [String][string] | time in `HH:mm` format |
 
 *Example Request*:
 
@@ -803,9 +803,9 @@ command: `get:foods`
 
 | Param | Type | Description |
 |:-----:|:----:|:-----------:|
-| [meal_id] | [Number](number)[] | - |
-| [from] | [String](string) | - | date or datetime (`YYYY-MM-DD HH:mm:ss`) |
-| [to] | [String](string) | - | date or datetime (`YYYY-MM-DD HH:mm:ss`) |
+| [meal_id] | [Number][number][] | - |
+| [from] | [String][string] | - | date or datetime (`YYYY-MM-DD HH:mm:ss`) |
+| [to] | [String][string] | - | date or datetime (`YYYY-MM-DD HH:mm:ss`) |
 
 *Example Request*:
 
@@ -853,9 +853,9 @@ command: `set:foods`
 
 | Param | Type | Description |
 |:-----:|:----:|:-----------:|
-| code | [Number](number) | User's identification code |
-| meal_id | [Number](number) | - |
-| datetime | [String](string) | datetime (`YYYY-MM-DD HH:mm:ss`) |
+| code | [Number][number] | User's identification code |
+| meal_id | [Number][number] | - |
+| datetime | [String][string] | datetime (`YYYY-MM-DD HH:mm:ss`) |
 
 *Example Request*:
 
@@ -898,8 +898,8 @@ command: `remove:foods`
 
 | Param | Type | Description |
 |:-----:|:----:|:-----------:|
-| [from] | [String](string) | date or datetime (`YYYY-MM-DD HH:mm:ss`) |
-| [to] | [String](string) | date or datetime (`YYYY-MM-DD HH:mm:ss`) |
+| [from] | [String][string] | date or datetime (`YYYY-MM-DD HH:mm:ss`) |
+| [to] | [String][string] | date or datetime (`YYYY-MM-DD HH:mm:ss`) |
 
 *Example Request*:
 
@@ -932,7 +932,7 @@ This command is used for mark reserved food meal as sent on device.
 
 | Param | Type | Description |
 |:-----:|:----:|:-----------:|
-| foods | [Number](number)[] | foods ids |
+| foods | [Number][number][] | foods ids |
 
 *Example Request*:
 
@@ -968,7 +968,7 @@ command: `set:menu_password`
 
 | Param | Type | Description |
 |:-----:|:----:|:-----------:|
-| password | [String](string) | only numbers, 4 digits |
+| password | [String][string] | only numbers, 4 digits |
 
 *Example Request*:
 
@@ -1002,7 +1002,7 @@ command: `set:usb_password`
 
 | Param | Type | Description |
 |:-----:|:----:|:-----------:|
-| password | [String](string) | only numbers, 4 digits |
+| password | [String][string] | only numbers, 4 digits |
 
 *Example Request*:
 
@@ -1036,7 +1036,7 @@ command: `set:power_password`
 
 | Param | Type | Description |
 |:-----:|:----:|:-----------:|
-| password | [String](string) | only numbers, 4 digits |
+| password | [String][string] | only numbers, 4 digits |
 
 *Example Request*:
 
@@ -1171,12 +1171,12 @@ command: `set:settings`
 |:-----:|:----:|:-----------:|
 | [device_mode] | `0` \| `1` \| `2` \| `3` | `0`: clock in & out, `1`: just clock in, `2`: just clock out, `3`: indeterminate |
 | [alarm_mode] | `0` \| `1` | `0`: melody, `1`: voice |
-| [volume] | [Number](number) | between `37` & `135615936` |
-| [show_presents_info] | [Boolean](boolean) | - |
-| [sync_server_activate] | [Boolean](boolean) | - |
-| [enable_shift_length] | [Boolean](boolean) | - |
-| [sync_server_ip] | [String](string) | - |
-| [day_light_saving_info] | [String](string) | - |
+| [volume] | [Number][number] | between `37` & `135615936` |
+| [show_presents_info] | [Boolean][boolean] | - |
+| [sync_server_activate] | [Boolean][boolean] | - |
+| [enable_shift_length] | [Boolean][boolean] | - |
+| [sync_server_ip] | [String][string] | - |
+| [day_light_saving_info] | [String][string] | - |
 | [key_access_list] | [Key Access](#key-access)[] | - |
 | [network_info_list] | [Network Info](#network-info)[] | - |
 
@@ -1184,21 +1184,21 @@ command: `set:settings`
 
 | Param | Type | Description |
 |:-----:|:----:|:-----------:|
-| code | [Number](number) | between `48` & `57` |
-| access | [Boolean](boolean) | - |
+| code | [Number][number] | between `48` & `57` |
+| access | [Boolean][boolean] | - |
 
 #### Network Info <!-- omit in toc -->
 
 | Param | Type | Default | Description |
 |:-----:|:----:|:-------:|:-----------:|
-| name | [String](string) | - | - |
-| interface_id | [Number](number) | - | - |
-| ap_addr | [String](string) | - | - |
-| password | [String](string) | - | - |
-| [dhcp] | [Boolean](boolean) | `false` | - |
-| [ip] | [String](string) | - | - |
-| [netmask] | [String](string) | `255.255.255.0` | - |
-| [gateway] | [String](string) | - | - |
+| name | [String][string] | - | - |
+| interface_id | [Number][number] | - | - |
+| ap_addr | [String][string] | - | - |
+| password | [String][string] | - | - |
+| [dhcp] | [Boolean][boolean] | `false` | - |
+| [ip] | [String][string] | - | - |
+| [netmask] | [String][string] | `255.255.255.0` | - |
+| [gateway] | [String][string] | - | - |
 
 *Example Request*:
 
@@ -1298,7 +1298,7 @@ command: `set:datetime`
 
 | Param | Type | Default | Description |
 |:-----:|:----:|:-------:|:-----------:|
-| [datetime] | [String](string) | now | `YYYY-MM-DD HH:mm:ss` |
+| [datetime] | [String][string] | now | `YYYY-MM-DD HH:mm:ss` |
 
 *Example Request*:
 

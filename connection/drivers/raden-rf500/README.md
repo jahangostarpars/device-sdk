@@ -169,12 +169,12 @@ command: `set:admins`
 
 | Param | Type | Default | Description |
 |:-----:|:----:|:-------:|:-----------:|
-| id | [Number](number) | - | - |
-| name | [String](string) | - | - |
+| id | [Number][number] | - | - |
+| name | [String][string] | - | - |
 | [authority] | `0` \| `1` | `1` | `0`: super administrator, `1`: normal administrator |
-| [card_num] | [String](string) | `"0Xffffffff"` | - |
-| [password] | [String](string) | `""` | - |
-| face_data | [String](string)[] | - | `18` face templates |
+| [card_num] | [String][string] | `"0Xffffffff"` | - |
+| [password] | [String][string] | `""` | - |
+| face_data | [String][string][] | - | `18` face templates |
 
 *Example Request*:
 
@@ -222,7 +222,7 @@ command: `remove:admins`
 
 | Param | Type | Description |
 |:-----:|:----:|:-----------:|
-| admins | [Number](number)[] | - |
+| admins | [Number][number][] | - |
 
 *Example Request*:
 
@@ -256,7 +256,7 @@ command: `get:admin_authority`
 
 | Param | Type | Description |
 |:-----:|:----:|:-----------:|
-| admin | [Number](number) | - |
+| admin | [Number][number] | - |
 
 *Example Request*:
 
@@ -294,7 +294,7 @@ command: `get:users`
 
 | Param | Type | Description |
 |:-----:|:----:|:-----------:|
-| [users] | [Number](number)[] | Users identification codes |
+| [users] | [Number][number][] | Users identification codes |
 
 *Example Request*:
 
@@ -352,15 +352,15 @@ command: `set:users`
 
 | Param | Type | Default | Description |
 |:-----:|:----:|:-------:|:-----------:|
-| id | [Number](number) | - | - |
-| name | [String](string) | - | maximum `17` characters |
+| id | [Number][number] | - | - |
+| name | [String][string] | - | maximum `17` characters |
 | [authority] | `"0X11"` \| `"0X55"` \| `"0Xaa"` | `"0X55"` | `"0X11"`: Access control & Attendance, `"0X55"`: Attendance only, `"0Xaa"`: Access only |
-| [card_num] | [String](string) | `"0Xffffffff"` | - |
+| [card_num] | [String][string] | `"0Xffffffff"` | - |
 | check_type | `"face"` \| `"card&face"` \| `"card"` \| `"num&password"` | - | - |
 | opendoor_type | `"face"` \| `"card&face"` \| `"card"` \| `"num&password"` | - | - |
-| [password] | [String](string) | `""` | - |
-| [photo] | [String](string) | `""` | `base64` format |
-| face_data | [String](string)[] | - | `18` face templates |
+| [password] | [String][string] | `""` | - |
+| [photo] | [String][string] | `""` | `base64` format |
+| face_data | [String][string][] | - | `18` face templates |
 
 *Example Request*:
 
@@ -417,7 +417,7 @@ command: `remove:users`
 
 | Param | Type | default | Description |
 |:-----:|:----:|:-------:|:-----------:|
-| [users] | [Number](number)[] | `[]` | Users identification codes |
+| [users] | [Number][number][] | `[]` | Users identification codes |
 
 *Example Request*:
 
@@ -457,8 +457,8 @@ command: `enroll:users`
 
 | Param | Type | Default | Description |
 |:-----:|:----:|:-------:|:-----------:|
-| id | [Number](number) | - | - |
-| name | [String](string) | - | maximum `17` characters |
+| id | [Number][number] | - | - |
+| name | [String][string] | - | maximum `17` characters |
 | [authority] | `"0X11"` \| `"0X55"` | `"0X55"` | `"0X11"`: Access control & Attendance, `"0X55"`: Attendance only |
 | [dutyrule] | `1` \| `2` \| `3` \| `4` \| `5` \| `6` \| `7` \| `8` \| `9` \| `10` \| `11` | `1` | `1`: Face, `2`: Card, `3`: Card and Photo, `4`: Card and Face, `5`: ID and Face, `6`: Card or Face, `7`: Card or Pin, `8`: ID and Pin, `9`: Face and Fingerprint, `10`: Face or Fingerprint, `11`: Fingerprint |
 | [photo] | [Boolean](boolean) | `false` | `true`: Capture head photo, `false`: Don‟t capture head photo |
@@ -512,8 +512,8 @@ command: `get:clockings`
 
 | Param | Type | Description |
 |:-----:|:----:|:-----------:|
-| [from] | [String](string) | date (`YYYY-MM-DD`) |
-| [to] | [String](string) | date (`YYYY-MM-DD`) |
+| [from] | [String][string] | date (`YYYY-MM-DD`) |
+| [to] | [String][string] | date (`YYYY-MM-DD`) |
 
 *Example Request*:
 
@@ -562,8 +562,8 @@ command: `remove:clockings`
 
 | Param | Type | Description |
 |:-----:|:----:|:-----------:|
-| [from] | [String](string) | date (`YYYY-MM-DD`) |
-| [to] | [String](string) | date (`YYYY-MM-DD`) |
+| [from] | [String][string] | date (`YYYY-MM-DD`) |
+| [to] | [String][string] | date (`YYYY-MM-DD`) |
 
 *Example Request*:
 
@@ -629,7 +629,7 @@ command: `set:datetime`
 
 | Param | Type | Default | Description |
 |:-----:|:----:|:-------:|:-----------:|
-| [datetime] | [String](string) | now | `YYYY-MM-DD HH:mm:ss` |
+| [datetime] | [String][string] | now | `YYYY-MM-DD HH:mm:ss` |
 
 *Example Request*:
 
