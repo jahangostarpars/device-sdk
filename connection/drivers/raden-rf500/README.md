@@ -35,6 +35,9 @@
   - [Get Workstatus](#get-workstatus)
   - [Set Workstatus](#set-workstatus)
   - [Remove Workstatus](#remove-workstatus)
+- [Security Photos](#security-photos)
+  - [Set Security Photo](#set-security-photo)
+  - [Remove Security Photos](#remove-security-photos)
 
 ## Test Connection
 
@@ -989,6 +992,73 @@ command: `remove:workstatus`
   "params": {
     "workstatus": [1, ...]
   }
+}
+```
+
+*Example Response*:
+
+```http
+HTTP/1.1 200 Ok
+
+{
+  "message": "Successful"
+}
+```
+
+## Security Photos
+
+### Set Security Photo
+
+Enables/Disables the security photo function
+
+command: `set:sec_photo`
+
+| Param | Type | Default | Description |
+|:-----:|:----:|:-------:|:-----------:|
+| [enabled] | [Boolean][boolean] | `true` | - |
+
+*Example Request*:
+
+```json
+{
+  "device": {
+    "host": "192.168.20.20",
+    "type": "RadenRF500",
+    "password": "123"
+  },
+  "command": "set:sec_photo",
+}
+```
+
+*Example Response*:
+
+```http
+HTTP/1.1 200 Ok
+
+{
+  "message": "Successful"
+}
+```
+
+### Remove Security Photos
+
+command: `remove:sec_photos`
+
+| Param | Type | Description |
+|:-----:|:----:|:-----------:|
+| [from] | [String][string] | date (`YYYY-MM-DD`) |
+| [to] | [String][string] | date (`YYYY-MM-DD`) |
+
+*Example Request*:
+
+```json
+{
+  "device": {
+    "host": "192.168.20.20",
+    "type": "RadenRF500",
+    "password": "123"
+  },
+  "command": "remove:sec_photos",
 }
 ```
 
