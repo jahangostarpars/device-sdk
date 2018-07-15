@@ -38,6 +38,9 @@
 - [Security Photos](#security-photos)
   - [Set Security Photo](#set-security-photo)
   - [Remove Security Photos](#remove-security-photos)
+- [Volume](#volume)
+  - [Get Volume](#get-volume)
+  - [Set Volume](#set-volume)
 
 ## Test Connection
 
@@ -1059,6 +1062,68 @@ command: `remove:sec_photos`
     "password": "123"
   },
   "command": "remove:sec_photos",
+}
+```
+
+*Example Response*:
+
+```http
+HTTP/1.1 200 Ok
+
+{
+  "message": "Successful"
+}
+```
+
+## Volume
+
+### Get Volume
+
+command: `get:volume`
+
+> no params
+
+*Example Request*:
+
+```json
+{
+  "device": {
+    "host": "192.168.20.20",
+    "type": "RadenRF500",
+    "password": "123"
+  },
+  "command": "get:volume",
+}
+```
+
+*Example Response*:
+
+```http
+HTTP/1.1 200 Ok
+
+{
+  "volume": 1
+}
+```
+
+### Set Volume
+
+command: `set:volume`
+
+| Param | Type | Description |
+|:-----:|:----:|:-----------:|
+| volume | `0` \| `1` \| `2` \| `3` | - |
+
+*Example Request*:
+
+```json
+{
+  "device": {
+    "host": "192.168.20.20",
+    "type": "RadenRF500",
+    "password": "123"
+  },
+  "command": "set:volume",
 }
 ```
 
