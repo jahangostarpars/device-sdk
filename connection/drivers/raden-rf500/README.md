@@ -1124,6 +1124,9 @@ command: `set:volume`
     "password": "123"
   },
   "command": "set:volume",
+  "params": {
+    "volume": 1
+  }
 }
 ```
 
