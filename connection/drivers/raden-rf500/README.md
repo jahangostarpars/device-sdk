@@ -54,6 +54,9 @@
 - [Daylight](#daylight)
   - [Get Daylight](#get-daylight)
   - [Set Daylight](#set-daylight)
+- [Network Info](#network-info)
+  - [Get Network Info](#get-network-info)
+  - [Set Network Info](#set-network-info)
 
 ## Test Connection
 
@@ -1460,7 +1463,7 @@ command: `set:daylight`
 
 | Param | Type | Default | Description |
 |:-----:|:----:|:-------:|:-----------:|
-| [support] | `1` \| `2` | `1` | `1`: “Month-Day Hour”, `2`: “Month-Week Weekdayth Hour" |
+| [support] | `1` \| `2` | `1` | `1`: "Month-Day Hour", `2`: "Month-Week Weekdayth Hour" |
 | start_time | [String][string] | - | - |
 | end_time | [String][string] | - | - |
 
@@ -1477,6 +1480,80 @@ command: `set:daylight`
   "params": {
     "start_time": "5-10 2",
     "end_time": "11-10 2"
+  }
+}
+```
+
+*Example Response*:
+
+```http
+HTTP/1.1 200 Ok
+
+{
+  "message": "Successful"
+}
+```
+
+## Network Info
+
+### Get Network Info
+
+command: `get:net_info`
+
+> no params
+
+*Example Request*:
+
+```json
+{
+  "device": {
+    "host": "192.168.20.20",
+    "type": "RadenRF500",
+    "password": "123"
+  },
+  "command": "get:net_info"
+}
+```
+
+*Example Response*:
+
+```http
+HTTP/1.1 200 Ok
+
+{
+  "info": {
+    "ip": "192.168.20.20",
+    "netmask": "255.255.255.0",
+    "gateway": "192.168.20.1",
+    "commukey": ""
+  }
+}
+```
+
+### Set Network Info
+
+command: `set:net_info`
+
+| Param | Type | Default | Description |
+|:-----:|:----:|:-------:|:-----------:|
+| ip | [String][string] | - | - |
+| gateway | [String][string] | - | - |
+| [netmask] | [String][string] | `"255.255.255.0"` | - |
+| [commukey] | [String][string] | `""` | - |
+
+*Example Request*:
+
+```json
+{
+  "device": {
+    "host": "192.168.20.20",
+    "type": "RadenRF500",
+    "password": "123"
+  },
+  "command": "set:net_info",
+  "params": {
+    "ip": "192.168.20.20",
+    "gateway": "192.168.20.1"
   }
 }
 ```
