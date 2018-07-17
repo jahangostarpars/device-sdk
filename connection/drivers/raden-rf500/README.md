@@ -72,6 +72,14 @@
 - [Set Access Sync](#set-access-sync)
 - [Set Relay Time](#set-relay-time)
 - [Set Relay Output](#set-relay-output)
+- [Set Duplication Check](#set-duplication-check)
+- [Set Photo Display](#set-photo-display)
+- [Set Photo Prompt](#set-photo-prompt)
+- [Restart Device](#restart-device)
+- [Reset Device](#reset-device)
+- [Upgrade Device](#upgrade-device)
+- [Check Upgrade Status](#check-upgrade-status)
+- [Open Door](#open-door)
 
 ## Test Connection
 
@@ -1807,7 +1815,7 @@ command: `get:capacity`
 HTTP/1.1 200 Ok
 
 {
-  "max_managernum": 8
+  "max_managernum": 8,
   "managernum": 0,
   "max_faceregist": 2000,
   "real_faceregist": 126,
@@ -2022,6 +2030,255 @@ command: `set:relay_output`
   "params": {
     "status": 1
   }
+}
+```
+
+*Example Response*:
+
+```http
+HTTP/1.1 200 Ok
+
+{
+  "message": "Successful"
+}
+```
+
+## Set Duplication Check
+
+command: `set:duplication_check`
+
+| Param | Type | Default | Description |
+|:-----:|:----:|:-------:|:-----------:|
+| [status] | `"enable"` \| `"disable"` | `"enable"` | - |
+
+*Example Request*:
+
+```json
+{
+  "device": {
+    "host": "192.168.20.20",
+    "type": "RadenRF500",
+    "password": "123"
+  },
+  "command": "set:duplication_check"
+}
+```
+
+*Example Response*:
+
+```http
+HTTP/1.1 200 Ok
+
+{
+  "message": "Successful"
+}
+```
+
+## Set Photo Display
+
+command: `set:photo_display`
+
+| Param | Type | Default | Description |
+|:-----:|:----:|:-------:|:-----------:|
+| [status] | `"enable"` \| `"disable"` | `"enable"` | - |
+
+*Example Request*:
+
+```json
+{
+  "device": {
+    "host": "192.168.20.20",
+    "type": "RadenRF500",
+    "password": "123"
+  },
+  "command": "set:photo_display"
+}
+```
+
+*Example Response*:
+
+```http
+HTTP/1.1 200 Ok
+
+{
+  "message": "Successful"
+}
+```
+
+## Set Photo Prompt
+
+command: `set:photo_prompt`
+
+| Param | Type | Default | Description |
+|:-----:|:----:|:-------:|:-----------:|
+| [status] | `"enable"` \| `"disable"` | `"enable"` | - |
+
+*Example Request*:
+
+```json
+{
+  "device": {
+    "host": "192.168.20.20",
+    "type": "RadenRF500",
+    "password": "123"
+  },
+  "command": "set:photo_prompt"
+}
+```
+
+*Example Response*:
+
+```http
+HTTP/1.1 200 Ok
+
+{
+  "message": "Successful"
+}
+```
+
+## Restart Device
+
+command: `restart:device`
+
+> no params
+
+*Example Request*:
+
+```json
+{
+  "device": {
+    "host": "192.168.20.20",
+    "type": "RadenRF500",
+    "password": "123"
+  },
+  "command": "restart:device"
+}
+```
+
+*Example Response*:
+
+```http
+HTTP/1.1 200 Ok
+
+{
+  "message": "Successful"
+}
+```
+
+## Reset Device
+
+command: `reset:device`
+
+> no params
+
+*Example Request*:
+
+```json
+{
+  "device": {
+    "host": "192.168.20.20",
+    "type": "RadenRF500",
+    "password": "123"
+  },
+  "command": "reset:device"
+}
+```
+
+*Example Response*:
+
+```http
+HTTP/1.1 200 Ok
+
+{
+  "message": "Successful"
+}
+```
+
+## Upgrade Device
+
+command: `upgrade:device`
+
+| Param | Type | Description |
+|:-----:|:----:|:-----------:|
+| url | [String][string] | - |
+| type | [String][string] | - |
+| edition | [String][string] | - |
+| md5check | [String][string] | - |
+
+*Example Request*:
+
+```json
+{
+  "device": {
+    "host": "192.168.20.20",
+    "type": "RadenRF500",
+    "password": "123"
+  },
+  "command": "upgrade:device",
+  "params": {
+    "url": "http://192.168.20.249/upgrade/xxx.BIN",
+    "type": "xxx",
+    "edition": "2.910.194",
+    "md5check": "e7a2ed67c8abe0f83b2f492491837d38"
+  }
+}
+```
+
+*Example Response*:
+
+```http
+HTTP/1.1 200 Ok
+
+{
+  "message": "Successful"
+}
+```
+
+## Check Upgrade Status
+
+command: `check:upgrade_status`
+
+> no params
+
+*Example Request*:
+
+```json
+{
+  "device": {
+    "host": "192.168.20.20",
+    "type": "RadenRF500",
+    "password": "123"
+  },
+  "command": "check:upgrade_status"
+}
+```
+
+*Example Response*:
+
+```http
+HTTP/1.1 200 Ok
+
+{
+  "status": 100
+}
+```
+
+## Open Door
+
+command: `open:door`
+
+> no params
+
+*Example Request*:
+
+```json
+{
+  "device": {
+    "host": "192.168.20.20",
+    "type": "RadenRF500",
+    "password": "123"
+  },
+  "command": "open:door"
 }
 ```
 
