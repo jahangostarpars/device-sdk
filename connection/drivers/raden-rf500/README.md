@@ -41,6 +41,9 @@
 - [Volume](#volume)
   - [Get Volume](#get-volume)
   - [Set Volume](#set-volume)
+- [Bell](#bell)
+  - [Get Bell](#get-bell)
+  - [Set Bell](#set-bell)
 
 ## Test Connection
 
@@ -1126,6 +1129,101 @@ command: `set:volume`
   "command": "set:volume",
   "params": {
     "volume": 1
+  }
+}
+```
+
+*Example Response*:
+
+```http
+HTTP/1.1 200 Ok
+
+{
+  "message": "Successful"
+}
+```
+
+## Bell
+
+### Get Bell
+
+command: `get:bell`
+
+| Param | Type | Description |
+|:-----:|:----:|:-----------:|
+| bell | [Number][number] | - |
+
+*Example Request*:
+
+```json
+{
+  "device": {
+    "host": "192.168.20.20",
+    "type": "RadenRF500",
+    "password": "123"
+  },
+  "command": "get:bell",
+  "params": {
+    "bell": 1
+  }
+}
+```
+
+*Example Response*:
+
+```http
+HTTP/1.1 200 Ok
+
+{
+  "bell": {
+    "status": "enable",
+    "bell_number": 0,
+    "bell_sound": 1,
+    "alarm_time": "09:00",
+    "bell_time": 3,
+    "bell_week": "1-1-1-1-1-0-0"
+  }
+}
+```
+
+### Set Bell
+
+command: `set:bell`
+
+| Param | Type | Description |
+|:-----:|:----:|:-----------:|
+| bell | [Bell Object](#bell-object) | - |
+
+#### Bell Object <!-- omit in toc -->
+
+| Param | Type | Default | Description |
+|:-----:|:----:|:-------:|:-----------:|
+| bell_number | [Number][number] | - | an integer: `0` < x < `23` |
+| bell_sound | [Number][number] | - | an integer: `0` < x < `6` |
+| [status] | `"enable"` \| `"disable"` | `"enable"` | - |
+| alarm_time | [String][string] | - | time (`HH:mm`) |
+| bell_time | [Number][number] | - | an integer: `0` < x < `9` |
+| [bell_week] | [String][string] | `"1-1-1-1-1-1-1"` | format: `"x-x-x-x-x-x-x"`, `x` can only be `0` or `1`, every `x` indicates bell is enabled or not for an specific day of week starting with monday |
+
+*Example Request*:
+
+```json
+{
+  "device": {
+    "host": "192.168.20.20",
+    "type": "RadenRF500",
+    "password": "123"
+  },
+  "command": "set:bell",
+  "params": {
+    "bell": {
+      "bell_number": 0,
+      "bell_sound": 1,
+      "status": "enable",
+      "alarm_time": "09:00",
+      "bell_time": 3,
+      "bell_week": "1-1-1-1-1-0-0"
+    }
   }
 }
 ```
