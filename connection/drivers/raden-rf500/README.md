@@ -44,6 +44,7 @@
 - [Bell](#bell)
   - [Get Bell](#get-bell)
   - [Set Bell](#set-bell)
+- [Set Failed Recognition Alarm](#set-failed-recognition-alarm)
 
 ## Test Connection
 
@@ -1225,6 +1226,38 @@ command: `set:bell`
       "bell_week": "1-1-1-1-1-0-0"
     }
   }
+}
+```
+
+*Example Response*:
+
+```http
+HTTP/1.1 200 Ok
+
+{
+  "message": "Successful"
+}
+```
+
+## Set Failed Recognition Alarm
+
+command: `set:fr_alarm`
+
+| Param | Type | Default | Description |
+|:-----:|:----:|:-------:|:-----------:|
+| [status] | `"enable"` \| `"disable"` | `"enable"` | - |
+| [fr_times] | [Number][number] | `2` | an integer: `1` < x < `9` |
+
+*Example Request*:
+
+```json
+{
+  "device": {
+    "host": "192.168.20.20",
+    "type": "RadenRF500",
+    "password": "123"
+  },
+  "command": "set:fr_alarm",
 }
 ```
 
