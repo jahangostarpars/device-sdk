@@ -63,6 +63,15 @@
 - [Interval](#interval)
   - [Get Interval](#get-interval)
   - [Set Interval](#set-interval)
+- [Get Model](#get-model)
+- [Get Mac](#get-mac)
+- [Get Capacity](#get-capacity)
+- [Get Picture Names](#get-picture-names)
+- [Get Picture](#get-picture)
+- [Set Server](#set-server)
+- [Set Access Sync](#set-access-sync)
+- [Set Relay Time](#set-relay-time)
+- [Set Relay Output](#set-relay-output)
 
 ## Test Connection
 
@@ -1617,7 +1626,7 @@ command: `set:wiegand`
 | pattern | `"w26"` \| `"w26_site"` \| `"w34"` \| `"w34_site"` \| `"customize"` | - | - |
 | [pulse_width] | [Number][number] | `100` | an integer: `20` < x < `800` |
 | [interval] | [Number][number] | `1000` | an integer: `200` < x < `20000` |
-| content | `"id"` | `"card"` | - | - |
+| content | `"id"` \| `"card"` | - | - |
 | [site_code] | [String][string] | - | - |
 
 *Example Request*:
@@ -1700,6 +1709,318 @@ command: `set:interval`
   "command": "set:interval",
   "params": {
     "interval": 2
+  }
+}
+```
+
+*Example Response*:
+
+```http
+HTTP/1.1 200 Ok
+
+{
+  "message": "Successful"
+}
+```
+
+## Get Model
+
+command: `get:model`
+
+> no params
+
+*Example Request*:
+
+```json
+{
+  "device": {
+    "host": "192.168.20.20",
+    "type": "RadenRF500",
+    "password": "123"
+  },
+  "command": "get:model"
+}
+```
+
+*Example Response*:
+
+```http
+HTTP/1.1 200 Ok
+
+{
+  "type": "F910"
+}
+```
+
+## Get Mac
+
+command: `get:mac`
+
+> no params
+
+*Example Request*:
+
+```json
+{
+  "device": {
+    "host": "192.168.20.20",
+    "type": "RadenRF500",
+    "password": "123"
+  },
+  "command": "get:mac"
+}
+```
+
+*Example Response*:
+
+```http
+HTTP/1.1 200 Ok
+
+{
+  "mac": "00-0C-5B-02-EC-C5",
+  "sn": "6714314090001858"
+}
+```
+
+## Get Capacity
+
+command: `get:capacity`
+
+> no params
+
+*Example Request*:
+
+```json
+{
+  "device": {
+    "host": "192.168.20.20",
+    "type": "RadenRF500",
+    "password": "123"
+  },
+  "command": "get:capacity"
+}
+```
+
+*Example Response*:
+
+```http
+HTTP/1.1 200 Ok
+
+{
+  "max_managernum": 8
+  "managernum": 0,
+  "max_faceregist": 2000,
+  "real_faceregist": 126,
+  "max_facerecord": 200000,
+  "real_facerecord": 3286,
+  "max_employee": 12000,
+  "real_employee": 136,
+  "max_other": 10000,
+  "real_other": 10,
+  "type": "F910",
+  "alg_edition": "3.1"
+}
+```
+
+## Get Picture Names
+
+gets picture names in `YYMMDD/(OK|SORRY|CARD)/User ID/YYYYMMDDhhmmss` format
+
+command: `get:picture_names`
+
+| Param | Type | Description |
+|:-----:|:----:|:-----------:|
+| [id] | [Number][number] | - |
+| date | [String][string] | date (`YYYY-MM-DD`) |
+| types | (`"face"` \| `"photo"` \| `"card"`)[] | - |
+
+*Example Request*:
+
+```json
+{
+  "device": {
+    "host": "192.168.20.20",
+    "type": "RadenRF500",
+    "password": "123"
+  },
+  "command": "get:picture_names",
+  "params": {
+    "time": "2014-05-08",
+    "type": ["face", "photo", "card"]
+  }
+}
+```
+
+*Example Response*:
+
+```http
+HTTP/1.1 200 Ok
+
+{
+  "names": [
+    "140508/OK/3066/20140508110530.JPG",
+    ...
+  ]
+}
+```
+
+## Get Picture
+
+command: `get:picture`
+
+| Param | Type | Description |
+|:-----:|:----:|:-----------:|
+| name | [String][string] | - |
+
+*Example Request*:
+
+```json
+{
+  "device": {
+    "host": "192.168.20.20",
+    "type": "RadenRF500",
+    "password": "123"
+  },
+  "command": "get:picture",
+  "params": {
+    "name": "140508/OK/3066/20140508110530.JPG"
+  }
+}
+```
+
+*Example Response*:
+
+```http
+HTTP/1.1 200 Ok
+
+{
+  "photo": "xxx..."
+}
+```
+
+## Set Server
+
+command: `set:server`
+
+| Param | Type | Description |
+|:-----:|:----:|:-----------:|
+| ip | [String][string] | - |
+| tcpport | [Number][number] | - |
+| udpport | [Number][number] | - |
+
+*Example Request*:
+
+```json
+{
+  "device": {
+    "host": "192.168.20.20",
+    "type": "RadenRF500",
+    "password": "123"
+  },
+  "command": "set:server",
+  "params": {
+    "ip": "192.168.20.22",
+    "tcpport": "9901",
+    "udpport": "9902"
+  }
+}
+```
+
+*Example Response*:
+
+```http
+HTTP/1.1 200 Ok
+
+{
+  "message": "Successful"
+}
+```
+
+## Set Access Sync
+
+command: `set:access_sync`
+
+| Param | Type | Default | Description |
+|:-----:|:----:|:-------:|:-----------:|
+| sync | [Boolean][boolean] | `true` | - |
+
+*Example Request*:
+
+```json
+{
+  "device": {
+    "host": "192.168.20.20",
+    "type": "RadenRF500",
+    "password": "123"
+  },
+  "command": "set:access_sync"
+}
+```
+
+*Example Response*:
+
+```http
+HTTP/1.1 200 Ok
+
+{
+  "message": "Successful"
+}
+```
+
+## Set Relay Time
+
+command: `set:relay_time`
+
+| Param | Type | Description |
+|:-----:|:----:|:-----------:|
+| time | [Number][number] | an integer: `0` < x < `10` |
+
+*Example Request*:
+
+```json
+{
+  "device": {
+    "host": "192.168.20.20",
+    "type": "RadenRF500",
+    "password": "123"
+  },
+  "command": "set:relay_time",
+  "params": {
+    "time": 8
+  }
+}
+```
+
+*Example Response*:
+
+```http
+HTTP/1.1 200 Ok
+
+{
+  "message": "Successful"
+}
+```
+
+## Set Relay Output
+
+command: `set:relay_output`
+
+| Param | Type | Description |
+|:-----:|:----:|:-----------:|
+| status | `1` \| `2` | `1`: Bell, `2`: Alarm |
+
+*Example Request*:
+
+```json
+{
+  "device": {
+    "host": "192.168.20.20",
+    "type": "RadenRF500",
+    "password": "123"
+  },
+  "command": "set:relay_output",
+  "params": {
+    "status": 1
   }
 }
 ```
