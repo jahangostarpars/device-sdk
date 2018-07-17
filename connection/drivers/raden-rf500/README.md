@@ -51,6 +51,9 @@
 - [Magnet Alarm](#magnet-alarm)
   - [Get Magnet Alarm](#get-magnet-alarm)
   - [Set Magnet Alarm](#set-magnet-alarm)
+- [Daylight](#daylight)
+  - [Get Daylight](#get-daylight)
+  - [Set Daylight](#set-daylight)
 
 ## Test Connection
 
@@ -1386,7 +1389,7 @@ command: `set:magnet_alarm`
 
 | Param | Type | Default | Description |
 |:-----:|:----:|:-------:|:-----------:|
-| type | `0` \| `1` \| `2` | - |`0`: none, `1`: normally open, `2`: normally closed |
+| type | `0` \| `1` \| `2` | - | `0`: none, `1`: normally open, `2`: normally closed |
 | magnet_delay | [Number][number] | - | an integer: `1` < x < `99` |
 | [status] | `"enable"` \| `"disable"` | `"enable"` | - |
 
@@ -1419,7 +1422,75 @@ HTTP/1.1 200 Ok
 }
 ```
 
+## Daylight
+
+### Get Daylight
+
+command: `get:daylight`
+
+> no params
+
+*Example Request*:
+
+```json
+{
+  "device": {
+    "host": "192.168.20.20",
+    "type": "RadenRF500",
+    "password": "123"
+  },
+  "command": "get:daylight"
+}
+```
+
+*Example Response*:
+
+```http
+HTTP/1.1 200 Ok
+
+{
+  "start_time": "5-10 2",
+  "end_time": "11-10 2"
+}
+```
+
+### Set Daylight
+
+command: `set:daylight`
+
+| Param | Type | Default | Description |
+|:-----:|:----:|:-------:|:-----------:|
+| [support] | `1` \| `2` | `1` | `1`: “Month-Day Hour”, `2`: “Month-Week Weekdayth Hour" |
+| start_time | [String][string] | - | - |
+| end_time | [String][string] | - | - |
+
+*Example Request*:
+
+```json
+{
+  "device": {
+    "host": "192.168.20.20",
+    "type": "RadenRF500",
+    "password": "123"
+  },
+  "command": "set:daylight",
+  "params": {
+    "start_time": "5-10 2",
+    "end_time": "11-10 2"
+  }
+}
+```
+
+*Example Response*:
+
+```http
+HTTP/1.1 200 Ok
+
+{
+  "message": "Successful"
+}
+```
+
 [string]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String
 [boolean]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean
 [number]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number
-[object]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object
