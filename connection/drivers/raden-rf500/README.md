@@ -60,6 +60,9 @@
 - [Wiegand](#wiegand)
   - [Get Wiegand](#get-wiegand)
   - [Set Wiegand](#set-wiegand)
+- [Interval](#interval)
+  - [Get Interval](#get-interval)
+  - [Set Interval](#set-interval)
 
 ## Test Connection
 
@@ -1632,6 +1635,71 @@ command: `set:wiegand`
     "pulse_width": 100,
     "interval": 1600,
     "content": "card"
+  }
+}
+```
+
+*Example Response*:
+
+```http
+HTTP/1.1 200 Ok
+
+{
+  "message": "Successful"
+}
+```
+
+## Interval
+
+### Get Interval
+
+command: `get:interval`
+
+> no params
+
+*Example Request*:
+
+```json
+{
+  "device": {
+    "host": "192.168.20.20",
+    "type": "RadenRF500",
+    "password": "123"
+  },
+  "command": "get:interval"
+}
+```
+
+*Example Response*:
+
+```http
+HTTP/1.1 200 Ok
+
+{
+  "interval": 2
+}
+```
+
+### Set Interval
+
+command: `set:interval`
+
+| Param | Type | Description |
+|:-----:|:----:|:-----------:|
+| interval | [Number][number] | an integer: `0` < x < `255` |
+
+*Example Request*:
+
+```json
+{
+  "device": {
+    "host": "192.168.20.20",
+    "type": "RadenRF500",
+    "password": "123"
+  },
+  "command": "set:interval",
+  "params": {
+    "interval": 2
   }
 }
 ```
