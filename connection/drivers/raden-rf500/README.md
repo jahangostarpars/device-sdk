@@ -45,6 +45,9 @@
   - [Get Bell](#get-bell)
   - [Set Bell](#set-bell)
 - [Set Failed Recognition Alarm](#set-failed-recognition-alarm)
+- [Temper Alarm](#temper-alarm)
+  - [Get Temper Alarm](#get-temper-alarm)
+  - [Set Temper Alarm](#set-temper-alarm)
 
 ## Test Connection
 
@@ -1258,6 +1261,68 @@ command: `set:fr_alarm`
     "password": "123"
   },
   "command": "set:fr_alarm",
+}
+```
+
+*Example Response*:
+
+```http
+HTTP/1.1 200 Ok
+
+{
+  "message": "Successful"
+}
+```
+
+## Temper Alarm
+
+### Get Temper Alarm
+
+command: `get:temper_alarm`
+
+> no params
+
+*Example Request*:
+
+```json
+{
+  "device": {
+    "host": "192.168.20.20",
+    "type": "RadenRF500",
+    "password": "123"
+  },
+  "command": "get:temper_alarm"
+}
+```
+
+*Example Response*:
+
+```http
+HTTP/1.1 200 Ok
+
+{
+  "status": "enable"
+}
+```
+
+### Set Temper Alarm
+
+command: `set:temper_alarm`
+
+| Param | Type | Default | Description |
+|:-----:|:----:|:-------:|:-----------:|
+| [status] | `"enable"` \| `"disable"` | `"enable"` | - |
+
+*Example Request*:
+
+```json
+{
+  "device": {
+    "host": "192.168.20.20",
+    "type": "RadenRF500",
+    "password": "123"
+  },
+  "command": "set:temper_alarm"
 }
 ```
 
