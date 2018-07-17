@@ -48,6 +48,9 @@
 - [Temper Alarm](#temper-alarm)
   - [Get Temper Alarm](#get-temper-alarm)
   - [Set Temper Alarm](#set-temper-alarm)
+- [Magnet Alarm](#magnet-alarm)
+  - [Get Magnet Alarm](#get-magnet-alarm)
+  - [Set Magnet Alarm](#set-magnet-alarm)
 
 ## Test Connection
 
@@ -1323,6 +1326,86 @@ command: `set:temper_alarm`
     "password": "123"
   },
   "command": "set:temper_alarm"
+}
+```
+
+*Example Response*:
+
+```http
+HTTP/1.1 200 Ok
+
+{
+  "message": "Successful"
+}
+```
+
+## Magnet Alarm
+
+### Get Magnet Alarm
+
+command: `get:magnet_alarm`
+
+> no params
+
+*Example Request*:
+
+```json
+{
+  "device": {
+    "host": "192.168.20.20",
+    "type": "RadenRF500",
+    "password": "123"
+  },
+  "command": "get:magnet_alarm"
+}
+```
+
+*Example Response*:
+
+```http
+HTTP/1.1 200 Ok
+
+{
+  "alarm": {
+    "type": 0,
+    "magnet_delay": 10,
+    "status": "enable"
+  }
+}
+```
+
+### Set Magnet Alarm
+
+command: `set:magnet_alarm`
+
+| Param | Type | Description |
+|:-----:|:----:|:-----------:|
+| alarm | [Magnet Alarm Object][#magnet-alarm-object] | - |
+
+#### Magnet Alarm Object <!-- omit in toc -->
+
+| Param | Type | Default | Description |
+|:-----:|:----:|:-------:|:-----------:|
+| type | `0` \| `1` \| `2` | - |`0`: none, `1`: normally open, `2`: normally closed |
+| magnet_delay | [Number][number] | - | an integer: `1` < x < `99` |
+| [status] | `"enable"` \| `"disable"` | `"enable"` | - |
+
+*Example Request*:
+
+```json
+{
+  "device": {
+    "host": "192.168.20.20",
+    "type": "RadenRF500",
+    "password": "123"
+  },
+  "command": "set:magnet_alarm",
+  "params": {
+    "alarm": {
+      "type": 0,
+      "magnet_delay": 10
+    }
+  }
 }
 ```
 
