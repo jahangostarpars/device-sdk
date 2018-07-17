@@ -57,6 +57,9 @@
 - [Network Info](#network-info)
   - [Get Network Info](#get-network-info)
   - [Set Network Info](#set-network-info)
+- [Wiegand](#wiegand)
+  - [Get Wiegand](#get-wiegand)
+  - [Set Wiegand](#set-wiegand)
 
 ## Test Connection
 
@@ -1554,6 +1557,81 @@ command: `set:net_info`
   "params": {
     "ip": "192.168.20.20",
     "gateway": "192.168.20.1"
+  }
+}
+```
+
+*Example Response*:
+
+```http
+HTTP/1.1 200 Ok
+
+{
+  "message": "Successful"
+}
+```
+
+## Wiegand
+
+### Get Wiegand
+
+command: `get:wiegand`
+
+> no params
+
+*Example Request*:
+
+```json
+{
+  "device": {
+    "host": "192.168.20.20",
+    "type": "RadenRF500",
+    "password": "123"
+  },
+  "command": "get:wiegand"
+}
+```
+
+*Example Response*:
+
+```http
+HTTP/1.1 200 Ok
+
+{
+  "pattern": "w26",
+  "pulse_width": 100,
+  "interval": 1600,
+  "content": "card"
+}
+```
+
+### Set Wiegand
+
+command: `set:wiegand`
+
+| Param | Type | Default | Description |
+|:-----:|:----:|:-------:|:-----------:|
+| pattern | `"w26"` \| `"w26_site"` \| `"w34"` \| `"w34_site"` \| `"customize"` | - | - |
+| [pulse_width] | [Number][number] | `100` | an integer: `20` < x < `800` |
+| [interval] | [Number][number] | `1000` | an integer: `200` < x < `20000` |
+| content | `"id"` | `"card"` | - | - |
+| [site_code] | [String][string] | - | - |
+
+*Example Request*:
+
+```json
+{
+  "device": {
+    "host": "192.168.20.20",
+    "type": "RadenRF500",
+    "password": "123"
+  },
+  "command": "set:wiegand",
+  "params": {
+    "pattern": "w26",
+    "pulse_width": 100,
+    "interval": 1600,
+    "content": "card"
   }
 }
 ```
